@@ -5,7 +5,8 @@ module com.example.gestion_adherents_ap {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
+    requires java.xml;
 
-    opens com.example.gestion_adherents_ap to javafx.fxml;
-    exports com.example.gestion_adherents_ap;
+    opens com.app.gestion_adherents_ap to javafx.fxml;
+    exports com.app.gestion_adherents_ap;
 }
