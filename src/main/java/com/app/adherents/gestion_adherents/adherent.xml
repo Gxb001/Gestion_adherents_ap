@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adhérents>
+    <adhérent id="1">
+        <Nom>Dupont</Nom>
+        <Prenom>Julie</Prenom>
+        <DateNaissance>1995-03-15</DateNaissance>
+        <Genre>Femme</Genre>
+        <Nom_de_naissance>Dupont</Nom_de_naissance>
+        <Pays_naissance>France</Pays_naissance>
+        <Ville_naissance>Paris</Ville_naissance>
+        <Nationalite>Française</Nationalite>
+        <Code_postal>75000</Code_postal>
+        <Adresse>123 Rue de la Liberté</Adresse>
+        <Ville>Paris</Ville>
+        <Numéro_de_telephone1>0123456789</Numéro_de_telephone1>
+        <Numéro_de_telephone2>9876543210</Numéro_de_telephone2>
+        <Adresse_email>julie.dupont@example.com</Adresse_email>
+        <Pratique>Compétition</Pratique>
+        <Latéralité>Gauche</Latéralité>
+        <id_du_club>1</id_du_club>
+        <Catégorie>M15</Catégorie>
+        <Pratique_Escrime>
+            <Arme>Fleuret</Arme>
+            <Arme>Épée</Arme>
+            <Arme>Sabre</Arme>
+        </Pratique_Escrime>
+        <Responsable_Légal>
+            <Nom_responsable>Dupont</Nom_responsable>
+            <Prenom_responsable>Paul</Prenom_responsable>
+        </Responsable_Légal>
+    </adhérent>
+    <adhérent id="2">
+        <Nom>Smith</Nom>
+        <Prenom>John</Prenom>
+        <DateNaissance>1990-06-25</DateNaissance>
+        <Genre>Homme</Genre>
+        <Nom_de_naissance>Smith</Nom_de_naissance>
+        <Pays_naissance>États-Unis</Pays_naissance>
+        <Ville_naissance>New York</Ville_naissance>
+        <Nationalite>Américaine</Nationalite>
+        <Code_postal>10001</Code_postal>
+        <Adresse>456 Main Street</Adresse>
+        <Ville>New York</Ville>
+        <Numéro_de_telephone1>2125551234</Numéro_de_telephone1>
+        <Adresse_email>john.smith@example.com</Adresse_email>
+        <Pratique>Loisir</Pratique>
+        <Latéralité>Droite</Latéralité>
+        <id_du_club>2</id_du_club>
+        <Catégorie>Juniors</Catégorie>
+        <Pratique_Escrime>
+            <Arme>Épée</Arme>
+        </Pratique_Escrime>
+        <Responsable_Légal>
+            <Nom_responsable>Smith</Nom_responsable>
+            <Prenom_responsable>Mary</Prenom_responsable>
+        </Responsable_Légal>
+    </adhérent>
+</adhérents>
