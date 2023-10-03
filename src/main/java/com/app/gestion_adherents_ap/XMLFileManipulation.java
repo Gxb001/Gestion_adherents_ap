@@ -241,7 +241,7 @@ public class XMLFileManipulation {
         return "";
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         try {
             String xmlFilePath = "C:\\Users\\Gabriel\\IdeaProjects\\XMLHandler\\src\\club.xml"; // Chemin vers votre fichier XML
 
@@ -255,5 +255,5 @@ public class XMLFileManipulation {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

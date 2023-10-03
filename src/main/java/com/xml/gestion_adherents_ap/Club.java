@@ -1,6 +1,7 @@
 package com.xml.gestion_adherents_ap;
 
 public class Club {
+    //#TODO : ajouter id club
     // un club possede un nom, adresse, contact, tel, mail, site
     private String nom;
     private String adresse;

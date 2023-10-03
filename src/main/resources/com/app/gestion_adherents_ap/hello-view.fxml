@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Blend?>
-<?import javafx.scene.layout.VBox?>
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<VBox alignment="CENTER" prefHeight="541.0" prefWidth="558.0" spacing="20.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.gestion_adherents_ap.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-   <children>
-      <TextField fx:id="recherche" prefHeight="5.0" prefWidth="518.0" text="Exemple : Marie">
-         <effect>
-            <Blend />
-         </effect>
-      </TextField>
-      <Button fx:id="btnRecherche" defaultButton="true" mnemonicParsing="false" text="Filtrer" />
-      <ListView fx:id="listAdherents" prefHeight="363.0" prefWidth="518.0" />
-   </children>
-</VBox>
+<Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane prefHeight="393.0" prefWidth="530.0">
+      <children>
+         <TableView layoutX="10.0" layoutY="94.0" prefHeight="285.0" prefWidth="510.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="94.0">
+           <columns>
+             <TableColumn prefWidth="75.0" text="C1" />
+             <TableColumn prefWidth="75.0" text="C2" />
+           </columns>
+         </TableView>
+         <Label layoutX="18.0" layoutY="60.0" text="Rechercher un membre :" />
+         <TextField layoutX="159.0" layoutY="56.0" prefHeight="25.0" prefWidth="355.0" promptText="Nom du membre" />
+      </children></AnchorPane>
+</Scene>
