@@ -6,8 +6,6 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -16,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.util.List;
 
 public class DefaultController {
+    static ObservableList<Adherent> adherentObservableList = FXCollections.observableArrayList();
     @FXML
     private TableView<Adherent> adherenttable;
     @FXML
@@ -34,8 +33,6 @@ public class DefaultController {
     private TableColumn<Adherent, String> representantadherentprenom;
     @FXML
     private TextField keywordstextfield;
-
-    static ObservableList<Adherent> adherentObservableList = FXCollections.observableArrayList();
 
     public void initialize() {
         try {
@@ -99,10 +96,7 @@ public class DefaultController {
                     return true;
                 } else if (adherent.getResponsableLegal().getNomResponsable().toLowerCase().indexOf(lowerCaseFilter) > -1) {
                     return true;
-                } else if (adherent.getResponsableLegal().getPrenomResponsable().toLowerCase().indexOf(lowerCaseFilter) > -1) {
-                    return true;
-                }
-                return false;
+                } else return adherent.getResponsableLegal().getPrenomResponsable().toLowerCase().indexOf(lowerCaseFilter) > -1;
             });
         });
         SortedList<Adherent> sortedData = new SortedList<>(filteredData);

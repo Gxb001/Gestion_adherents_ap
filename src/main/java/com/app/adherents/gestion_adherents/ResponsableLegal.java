@@ -3,6 +3,12 @@ package com.app.adherents.gestion_adherents;
 public class ResponsableLegal {
     private String nomResponsable;
     private String prenomResponsable;
+
+    public ResponsableLegal(String nomResponsable, String prenomResponsable) {
+        this.nomResponsable = nomResponsable;
+        this.prenomResponsable = prenomResponsable;
+    }
+
     public String getNomResponsable() {
         return nomResponsable;
     }
@@ -16,12 +22,6 @@ public class ResponsableLegal {
     }
 
     public void setPrenomResponsable(String prenomResponsable) {
-        this.prenomResponsable = prenomResponsable;
-    }
-
-
-    public ResponsableLegal(String nomResponsable, String prenomResponsable) {
-        this.nomResponsable = nomResponsable;
         this.prenomResponsable = prenomResponsable;
     }
 
