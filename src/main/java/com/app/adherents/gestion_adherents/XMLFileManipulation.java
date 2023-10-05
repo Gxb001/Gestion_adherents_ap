@@ -70,6 +70,9 @@ public class XMLFileManipulation {
         }
     }
 
+    /*
+    verifie si une valeur est egal à la nouvelle
+     */
     public static boolean comparerBalisesXML(String xmlFilePath, String balisePrincipale, String baliseAAfficher, String valeurAComparer) {
         try {
             // Configuration du parseur DOM
@@ -112,7 +115,7 @@ public class XMLFileManipulation {
     }
 
 
-    // Fonction pour modifier la valeur d'une balise spécifiée
+    // Function pour modifier la valeur d'une balise spécifiée
     public static boolean modifierValeurBalise(String xmlFilePath, String balisePrincipale, String id, String baliseAModifier, String nouvelleValeur) {
         try {
             // Appel de la fonction pour afficher la valeur actuelle
@@ -210,69 +213,6 @@ public class XMLFileManipulation {
             }
         }
     }
-    /*public static List<Adherent> listerAdherents(String xmlFilePath) {
-        List<Adherent> adherents = new ArrayList<>();
-        try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-
-            File xmlFile = new File(xmlFilePath);
-
-            if (!xmlFile.exists()) {
-                // Gérer le cas où le fichier XML n'existe pas
-                return adherents;
-            }
-
-            Document document = builder.parse(xmlFile);
-            NodeList nodeList = document.getElementsByTagName("adhérent");
-
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                Element element = (Element) nodeList.item(i);
-                int id = Integer.parseInt(element.getAttribute("id"));
-                String nom = getElementTextContent(element, "Nom");
-                String prenom = getElementTextContent(element, "Prenom");
-                String dateNaissance = getElementTextContent(element, "DateNaissance");
-                String genre = getElementTextContent(element, "Genre");
-                String nomDeNaissance = getElementTextContent(element, "Nom_de_naissance");
-                String paysNaissance = getElementTextContent(element, "Pays_naissance");
-                String villeNaissance = getElementTextContent(element, "Ville_naissance");
-                String nationalite = getElementTextContent(element, "Nationalite");
-                String codePostal = getElementTextContent(element, "Code_postal");
-                String adresse = getElementTextContent(element, "Adresse");
-                String ville = getElementTextContent(element, "Ville");
-                String numeroTelephone1 = getElementTextContent(element, "Numéro_de_telephone1");
-                String numeroTelephone2 = getElementTextContent(element, "Numéro_de_telephone2");
-                String adresseEmail = getElementTextContent(element, "Adresse_email");
-                String pratique = getElementTextContent(element, "Pratique");
-                String lateralite = getElementTextContent(element, "Latéralité");
-                String categorie = getElementTextContent(element, "Catégorie");
-
-                // Récupérez la liste des armes pratiquées
-                List<String> pratiqueEscrimeArmes = new ArrayList<>();
-                NodeList armesNodeList = element.getElementsByTagName("Arme");
-                for (int j = 0; j < armesNodeList.getLength(); j++) {
-                    String arme = armesNodeList.item(j).getTextContent();
-                    pratiqueEscrimeArmes.add(arme);
-                }
-
-                // Récupérez les détails du responsable légal
-                Element responsableLegalElement = (Element) element.getElementsByTagName("Responsable_Légal").item(0);
-                String responsableNom = getElementTextContent(responsableLegalElement, "Nom_responsable");
-                String responsablePrenom = getElementTextContent(responsableLegalElement, "Prenom_responsable");
-
-                // Créez un objet Adherent
-                Adherent adherent = new Adherent(id, nom, prenom, dateNaissance, genre, nomDeNaissance, paysNaissance, villeNaissance, nationalite,
-                        codePostal, adresse, ville, numeroTelephone1, numeroTelephone2, adresseEmail, pratique, lateralite, categorie,
-                        pratiqueEscrimeArmes, new ResponsableLegal(responsableNom, responsablePrenom));
-
-                // Ajoutez l'adhérent à la liste
-                adherents.add(adherent);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return adherents;
-    }*/
 
 
     private static String getElementTextContent(Element element, String tagName) {
@@ -283,12 +223,43 @@ public class XMLFileManipulation {
         return "";
     }
 
-    /*public static void main(String[] args) {
+    /*
+    Recupere le nombre d'elements dans une fichier xml, par exemple si il y à 20 adherents cela renvoie 20.
+     */
+    public static int last_id(String xmlFilePath, String balisePrincipale) {
         try {
-            String xmlFilePath = "C:\\Users\\Gabriel\\IdeaProjects\\XMLHandler\\src\\club.xml"; // Chemin vers votre fichier XML
+            File xmlFile = new File(xmlFilePath);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(xmlFile);
+
+            doc.getDocumentElement().normalize();
+
+            NodeList BalList = doc.getElementsByTagName(balisePrincipale);
+
+            if (BalList.getLength() > 0) {
+                Node lastBal = BalList.item(BalList.getLength() - 1);
+                Element lastElement = (Element) lastBal;
+                String lastId = lastElement.getAttribute("id");
+                //System.out.println("Le dernier ID est : " + lastId);
+                return Integer.parseInt(lastId);
+            } else {
+                System.out.println("Aucun élément <"+ balisePrincipale.toLowerCase() +"> trouvé dans le fichier XML.");
+            }
+        } catch (Exception e) {
+            System.err.println("Une erreur s'est produite : " + e.getMessage());
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        try {
+            String xmlFilePath = "C:\\Users\\gabri\\Desktop\\GA-AP\\Gestion_adherents_ap\\src\\main\\java\\com\\app\\adherents\\gestion_adherents\\categorie.xml"; // Chemin vers votre fichier XML
 
             // Appel de la fonction pour afficher l'adresse du club avec l'ID "1"
-            String result = afficherXML(xmlFilePath, "club", "2", "nom");
+            //String result = afficherXML(xmlFilePath, "categorie", "2", "nom");
+            //System.out.println(result);
+            //System.out.println(last_id(xmlFilePath, "categorie"));
             //System.out.println(comparerBalisesXML(xmlFilePath, "club", "nom", "test"));
             //if (!result.startsWith("Erreur")) {
             //System.out.println("Nom: "+result);
@@ -297,5 +268,5 @@ public class XMLFileManipulation {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }*/
+    }
 }

@@ -55,4 +55,58 @@
             <Prenom_responsable>Mary</Prenom_responsable>
         </Responsable_Légal>
     </adhérent>
+    <adhérent id="3">
+        <Nom>Garcia</Nom>
+        <Prenom>Maria</Prenom>
+        <DateNaissance>1997-09-20</DateNaissance>
+        <Genre>Femme</Genre>
+        <Nom_de_naissance>Garcia</Nom_de_naissance>
+        <Pays_naissance>Espagne</Pays_naissance>
+        <Ville_naissance>Madrid</Ville_naissance>
+        <Nationalite>Espagnole</Nationalite>
+        <Code_postal>28001</Code_postal>
+        <Adresse>789 Calle de la Libertad</Adresse>
+        <Ville>Madrid</Ville>
+        <Numéro_de_telephone1>3456789123</Numéro_de_telephone1>
+        <Numéro_de_telephone2>9876543210</Numéro_de_telephone2>
+        <Adresse_email>maria.garcia@example.com</Adresse_email>
+        <Pratique>Compétition</Pratique>
+        <Latéralité>Droite</Latéralité>
+        <id_du_club>1</id_du_club>
+        <Catégorie>M20</Catégorie>
+        <Pratique_Escrime>
+            <Arme>Fleuret</Arme>
+            <Arme>Épée</Arme>
+        </Pratique_Escrime>
+        <Responsable_Légal>
+            <Nom_responsable>Garcia</Nom_responsable>
+            <Prenom_responsable>Javier</Prenom_responsable>
+        </Responsable_Légal>
+    </adhérent>
+    <adhérent id="4">
+        <Nom>Chen</Nom>
+        <Prenom>Liang</Prenom>
+        <DateNaissance>2001-03-10</DateNaissance>
+        <Genre>Homme</Genre>
+        <Nom_de_naissance>Chen</Nom_de_naissance>
+        <Pays_naissance>Chine</Pays_naissance>
+        <Ville_naissance>Pékin</Ville_naissance>
+        <Nationalite>Chinoise</Nationalite>
+        <Code_postal>100000</Code_postal>
+        <Adresse>123 Main Street</Adresse>
+        <Ville>Pékin</Ville>
+        <Numéro_de_telephone1>861088888888</Numéro_de_telephone1>
+        <Adresse_email>liang.chen@example.com</Adresse_email>
+        <Pratique>Loisir</Pratique>
+        <Latéralité>Gauche</Latéralité>
+        <id_du_club>2</id_du_club>
+        <Catégorie>Juniors</Catégorie>
+        <Pratique_Escrime>
+            <Arme>Sabre</Arme>
+        </Pratique_Escrime>
+        <Responsable_Légal>
+            <Nom_responsable>Chen</Nom_responsable>
+            <Prenom_responsable>Xia</Prenom_responsable>
+        </Responsable_Légal>
+    </adhérent>
 </adhérents>

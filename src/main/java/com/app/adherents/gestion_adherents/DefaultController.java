@@ -35,13 +35,35 @@ public class DefaultController {
     private TextField keywordstextfield;
 
     public void initialize() {
+        String XMLPath_adherent = "C:\\Users\\gabri\\Desktop\\GA-AP\\Gestion_adherents_ap\\src\\main\\java\\com\\app\\adherents\\gestion_adherents\\adherent.xml";
+        String XMLPath_club = "C:\\Users\\gabri\\Desktop\\GA-AP\\Gestion_adherents_ap\\src\\main\\java\\com\\app\\adherents\\gestion_adherents\\club.xml";
+        String XMLPath_categorie = "C:\\Users\\gabri\\Desktop\\GA-AP\\Gestion_adherents_ap\\src\\main\\java\\com\\app\\adherents\\gestion_adherents\\categorie.xml";
         try {
             // Chargez les adhérents à partir de votre fichier XML
-            List<Adherent> adherents = XMLListing.listerAdherents("D:\\Users\\Gabriel\\Desktop\\Nouveau dossier\\Cours\\BTS Seconde Année\\AP\\Mission_1\\Gestion_adherents\\src\\main\\java\\com\\app\\adherents\\gestion_adherents\\adherent.xml");
+            List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
             adherentObservableList.addAll(adherents);
         } catch (Exception e) {
             e.printStackTrace();
             // Gérez l'exception ici (affichage d'un message d'erreur par exemple)
+        }
+        try {
+            int Nb_balise = XMLFileManipulation.last_id(XMLPath_club, "club");
+            List<Club> clubs = null;
+            for (int i = 1; i < Nb_balise; i++) {
+                int id = Integer.parseInt(XMLFileManipulation.afficherXML(XMLPath_club, "club", String.valueOf(i), "id"));
+                String nom = XMLFileManipulation.afficherXML(XMLPath_club, "club", String.valueOf(i), "nom");
+                String adresse = XMLFileManipulation.afficherXML(XMLPath_club, "club", String.valueOf(i), "adresse");
+                String contact = XMLFileManipulation.afficherXML(XMLPath_club, "club", String.valueOf(i), "contact");
+                String tel = XMLFileManipulation.afficherXML(XMLPath_club, "club", String.valueOf(i), "tel");
+                String mail = XMLFileManipulation.afficherXML(XMLPath_club, "club", String.valueOf(i), "mail");
+                String site = XMLFileManipulation.afficherXML(XMLPath_club, "club", String.valueOf(i), "site");
+                //constructeur
+                Club club = new Club(id, nom, adresse, contact, tel, mail, site);
+                //ajout dans la liste
+                clubs.add(club);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         // Assurez-vous que les colonnes sont associées aux propriétés appropriées de la classe Adherent
@@ -96,14 +118,12 @@ public class DefaultController {
                     return true;
                 } else if (adherent.getResponsableLegal().getNomResponsable().toLowerCase().indexOf(lowerCaseFilter) > -1) {
                     return true;
-                } else return adherent.getResponsableLegal().getPrenomResponsable().toLowerCase().indexOf(lowerCaseFilter) > -1;
+                } else
+                    return adherent.getResponsableLegal().getPrenomResponsable().toLowerCase().indexOf(lowerCaseFilter) > -1;
             });
         });
         SortedList<Adherent> sortedData = new SortedList<>(filteredData);
-
         sortedData.comparatorProperty().bind(adherenttable.comparatorProperty());
-
         adherenttable.setItems(sortedData);
-
     }
 }
