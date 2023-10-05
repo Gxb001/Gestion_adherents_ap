@@ -11,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DefaultController {
@@ -48,9 +49,8 @@ public class DefaultController {
         }
         try {
             int Nb_balise = XMLFileManipulation.last_id(XMLPath_club, "club");
-            List<Club> clubs = null;
+            List<Club> clubs = new ArrayList<>();
             for (int i = 1; i < Nb_balise; i++) {
-                int id = Integer.parseInt(XMLFileManipulation.afficherXML(XMLPath_club, "club", String.valueOf(i), "id"));
                 String nom = XMLFileManipulation.afficherXML(XMLPath_club, "club", String.valueOf(i), "nom");
                 String adresse = XMLFileManipulation.afficherXML(XMLPath_club, "club", String.valueOf(i), "adresse");
                 String contact = XMLFileManipulation.afficherXML(XMLPath_club, "club", String.valueOf(i), "contact");
@@ -58,9 +58,14 @@ public class DefaultController {
                 String mail = XMLFileManipulation.afficherXML(XMLPath_club, "club", String.valueOf(i), "mail");
                 String site = XMLFileManipulation.afficherXML(XMLPath_club, "club", String.valueOf(i), "site");
                 //constructeur
-                Club club = new Club(id, nom, adresse, contact, tel, mail, site);
-                //ajout dans la liste
-                clubs.add(club);
+                Club club = new Club(i, nom, adresse, contact, tel, mail, site);
+                try {
+                    clubs.add(club);
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
         } catch (Exception e) {
             e.printStackTrace();

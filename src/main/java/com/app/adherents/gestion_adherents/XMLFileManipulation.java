@@ -53,22 +53,23 @@ public class XMLFileManipulation {
                     if (childNodes.getLength() > 0) {
                         Element balise = (Element) childNodes.item(0);
                         String result = balise.getTextContent();
-                        journaliser("Affichage de la balise " + baliseAAfficher + " avec l'ID " + id);
                         return result;
-                    } else {
-                        return "La balise " + baliseAAfficher + " n'existe pas sous l'ID " + id + ".";
                     }
                 }
             }
 
-            // Si l'ID spécifié n'est pas trouvé
-            return "L'ID " + id + " n'existe pas dans la balise principale " + balisePrincipale + ".";
+            // Si l'ID spécifié n'est pas trouvé ou la balise n'est pas trouvée, vous pouvez renvoyer une valeur par défaut ou lancer une exception.
+            throw new Exception("La balise " + baliseAAfficher + " n'existe pas sous l'ID " + id + ".");
+
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
-            journaliser("Erreur lors de la lecture du fichier XML : " + e.getMessage());
-            return "Erreur lors de la lecture du fichier XML";
+            return "Erreur lors de la lecture du fichier XML : " + e.getMessage();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Erreur : " + e.getMessage();
         }
     }
+
 
     /*
     verifie si une valeur est egal à la nouvelle
