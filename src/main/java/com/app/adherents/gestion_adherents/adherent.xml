@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<adhérents>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><adhérents>
     <adhérent id="1">
-        <Nom>Dupont</Nom>
+        <Nom>test</Nom>
         <Prenom>Julie</Prenom>
         <DateNaissance>1995-03-15</DateNaissance>
         <Genre>Femme</Genre>
@@ -20,13 +19,11 @@
         <id_du_club>1</id_du_club>
         <Catégorie>M15</Catégorie>
         <Pratique_Escrime>
-            <Arme>Fleuret</Arme>
             <Arme>Épée</Arme>
-            <Arme>Sabre</Arme>
         </Pratique_Escrime>
         <Responsable_Légal>
-            <Nom_responsable>Dupont</Nom_responsable>
-            <Prenom_responsable>Paul</Prenom_responsable>
+            <Nom_responsable>Jean</Nom_responsable>
+            <Prenom_responsable>Michelle</Prenom_responsable>
         </Responsable_Légal>
     </adhérent>
     <adhérent id="2">

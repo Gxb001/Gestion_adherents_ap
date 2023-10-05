@@ -1,0 +1,7 @@
+// Enregistrement des modifications dans le fichier XML
+TransformerFactory transformerFactory = TransformerFactory.newInstance();
+Transformer transformer = transformerFactory.newTransformer();
+transformer.setOutputProperty(OutputKeys.INDENT, "yes"); // Activer l'indentation
+DOMSource source = new DOMSource(document);
+StreamResult result = new StreamResult(xmlFile);
+transformer.transform(source, result);

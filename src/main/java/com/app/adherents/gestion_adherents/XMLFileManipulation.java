@@ -9,6 +9,7 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
@@ -19,10 +20,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class XMLFileManipulation {
 
@@ -356,11 +354,123 @@ public class XMLFileManipulation {
     }
 
 
+    public static boolean modifierValeurBalise(String xmlFilePath, String balisePrincipale, String id, String baliseAModifier, List<String> nouvellesValeurs) {
+        try {
+            // Configuration du parseur DOM
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+
+            // Chargement du fichier XML
+            File xmlFile = new File(xmlFilePath);
+
+            if (!xmlFile.exists()) {
+                return false; // Le fichier XML n'existe pas
+            }
+
+            // Analyse du fichier XML
+            Document document = builder.parse(xmlFile);
+            NodeList nodeList = document.getElementsByTagName(balisePrincipale);
+
+            // Parcours des éléments à la recherche de l'ID spécifié
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Element element = (Element) nodeList.item(i);
+                String elementID = element.getAttribute("id");
+
+                if (elementID.equals(id)) {
+                    // Recherche de la balise à modifier
+                    NodeList childNodes = element.getElementsByTagName(baliseAModifier);
+
+                    for (int j = 0; j < childNodes.getLength(); j++) {
+                        Node childNode = childNodes.item(j);
+
+                        if (childNode.getNodeType() == Node.ELEMENT_NODE && childNode.getNodeName().equals(baliseAModifier)) {
+                            // Vérifier si la balise à modifier est "Pratique_Escrime"
+                            if (baliseAModifier.equals("Pratique_Escrime")) {
+                                // Supprimer les anciennes balises d'armes
+                                Node pratiqueEscrimeNode = childNode;
+                                NodeList armesNodes = pratiqueEscrimeNode.getChildNodes();
+
+                                for (int k = armesNodes.getLength() - 1; k >= 0; k--) {
+                                    Node armeNode = armesNodes.item(k);
+                                    if (armeNode.getNodeType() == Node.ELEMENT_NODE && armeNode.getNodeName().equals("Arme")) {
+                                        pratiqueEscrimeNode.removeChild(armeNode);
+                                    }
+                                }
+
+                                // Ajouter les nouvelles balises d'armes
+                                for (String arme : nouvellesValeurs) {
+                                    Element armeElement = document.createElement("Arme");
+                                    armeElement.setTextContent(arme);
+                                    pratiqueEscrimeNode.appendChild(armeElement);
+                                }
+                            } else if (baliseAModifier.equals("Responsable_Légal")) {
+                                // Vérifier si la balise à modifier est "Responsable_Légal"
+                                Element parentElement = (Element) childNode;
+                                NodeList responsableNodes = parentElement.getChildNodes();
+
+                                // Supprimer les anciennes balises "Nom_responsable" et "Prenom_responsable"
+                                for (int k = responsableNodes.getLength() - 1; k >= 0; k--) {
+                                    Node responsableNode = responsableNodes.item(k);
+                                    if (responsableNode.getNodeType() == Node.ELEMENT_NODE && (responsableNode.getNodeName().equals("Nom_responsable") || responsableNode.getNodeName().equals("Prenom_responsable"))) {
+                                        parentElement.removeChild(responsableNode);
+                                    }
+                                }
+
+                                // Ajouter les nouvelles balises "Nom_responsable" et "Prenom_responsable"
+                                Element nouvelleBaliseNom = document.createElement("Nom_responsable");
+                                Element nouvelleBalisePrenom = document.createElement("Prenom_responsable");
+
+                                nouvelleBaliseNom.setTextContent(nouvellesValeurs.get(0));
+                                nouvelleBalisePrenom.setTextContent(nouvellesValeurs.get(1));
+
+                                parentElement.appendChild(nouvelleBaliseNom);
+                                parentElement.appendChild(nouvelleBalisePrenom);
+                            }
+
+                            // Enregistrement des modifications dans le fichier XML
+                            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                            Transformer transformer = transformerFactory.newTransformer();
+                            transformer.setOutputProperty(OutputKeys.INDENT, "no"); // Activer l'indentation
+                            DOMSource source = new DOMSource(document);
+                            StreamResult result = new StreamResult(xmlFile);
+                            transformer.transform(source, result);
+                            return true; // Modification réussie
+                        }
+                    }
+                    return false; // La balise à modifier n'a pas été trouvée
+                }
+            }
+            // Si l'ID spécifié n'est pas trouvé
+            return false; // L'ID spécifié n'a pas été trouvé
+        } catch (ParserConfigurationException | SAXException | IOException | TransformerException e) {
+            e.printStackTrace();
+            return false; // Erreur lors de la modification du fichier XML
+        }
+    }
+
+
     public static void main(String[] args) {
         try {   // Chemin vers votre fichier XML
             String xmlFilePath = JSONReader.getJsonValue("adherent");
-            List result = afficherArmesPratiquées(xmlFilePath, "adhérent", "1");
-            System.out.println(result);
+
+            //List<String> nouvellesValeurArmes = Arrays.asList( "Fleuret", "Epée");
+            //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Pratique_Escrime", nouvellesValeurArmes);
+            //System.out.println(afficherArmesPratiquées(xmlFilePath, "adhérent", "1"));
+
+            List<String> nouvellesValeursResponsableLegal = Arrays.asList("test", "Michelle");
+            modifierValeurBalise(xmlFilePath, "adhérent", "1", "Responsable_Légal", nouvellesValeursResponsableLegal);
+
+            System.out.println(afficherNomPrenomResponsable(xmlFilePath, "adhérent", "1")[0]);
+            System.out.println(afficherNomPrenomResponsable(xmlFilePath, "adhérent", "1")[1]);
+            System.out.println(afficherArmesPratiquées(xmlFilePath, "adhérent", "1"));
+
+
+            //List<String> nouvellesValeursArmes = Arrays.asList("Fleuret");
+            //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Pratique_Escrime", nouvellesValeursArmes);
+
+            //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Nom", "test");
+            //List result = afficherArmesPratiquées(xmlFilePath, "adhérent", "1");
+            //System.out.println(result);
             //String rnom = afficherNomPrenomResponsable(xmlFilePath, "adhérent", "1")[0];
             //String rprenom = afficherNomPrenomResponsable(xmlFilePath, "adhérent", "1")[1];
             //System.out.println("Le responsable légal se nome : " + rnom + " " + rprenom);
