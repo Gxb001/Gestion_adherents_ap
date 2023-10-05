@@ -253,8 +253,7 @@ public class XMLFileManipulation {
     }
 
     public static void main(String[] args) {
-        try {
-            String xmlFilePath = "C:\\Users\\gabri\\Desktop\\GA-AP\\Gestion_adherents_ap\\src\\main\\java\\com\\app\\adherents\\gestion_adherents\\categorie.xml"; // Chemin vers votre fichier XML
+        try {   // Chemin vers votre fichier XML
 
             // Appel de la fonction pour afficher l'adresse du club avec l'ID "1"
             //String result = afficherXML(xmlFilePath, "categorie", "2", "nom");

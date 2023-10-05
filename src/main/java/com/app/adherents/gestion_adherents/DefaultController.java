@@ -35,9 +35,9 @@ public class DefaultController {
     private TextField keywordstextfield;
 
     public void initialize() {
-        String XMLPath_adherent = "C:\\Users\\gabri\\Desktop\\GA-AP\\Gestion_adherents_ap\\src\\main\\java\\com\\app\\adherents\\gestion_adherents\\adherent.xml";
-        String XMLPath_club = "C:\\Users\\gabri\\Desktop\\GA-AP\\Gestion_adherents_ap\\src\\main\\java\\com\\app\\adherents\\gestion_adherents\\club.xml";
-        String XMLPath_categorie = "C:\\Users\\gabri\\Desktop\\GA-AP\\Gestion_adherents_ap\\src\\main\\java\\com\\app\\adherents\\gestion_adherents\\categorie.xml";
+        String XMLPath_adherent = JSONReader.getJsonValue("adherent");
+        String XMLPath_club = JSONReader.getJsonValue("club");
+        String XMLPath_categorie = JSONReader.getJsonValue("categorie");
         try {
             // Chargez les adhérents à partir de votre fichier XML
             List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
