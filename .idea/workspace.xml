@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="fichier json pour stocker les path xml">
+    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="fixage erreurs list club &amp; id club">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/recup_id_club" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XMLFileManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XMLFileManipulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/notes" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +72,7 @@
       <recent name="C:\Users\gabri\Desktop\GA-AP\Gestion_adherents_ap\src\main\java\com\app\adherents\gestion_adherents" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BaseApp">
+  <component name="RunManager" selected="Application.XMLFileManipulation">
     <configuration name="BaseApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.app.adherents.gestion_adherents.BaseApp" />
       <module name="Gestion_adherents" />
@@ -113,9 +114,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.XMLFileManipulation" />
         <item itemvalue="Application.BaseApp" />
         <item itemvalue="Application.JSONReader" />
-        <item itemvalue="Application.XMLFileManipulation" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696523275916</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixage erreurs list club &amp; id club">
+      <option name="closed" value="true" />
+      <created>1696524222650</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696524222650</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +192,7 @@
     <MESSAGE value="Trie des adhérents ok" />
     <MESSAGE value="Fichier note -&gt; Rappels" />
     <MESSAGE value="fichier json pour stocker les path xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="fichier json pour stocker les path xml" />
+    <MESSAGE value="fixage erreurs list club &amp; id club" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixage erreurs list club &amp; id club" />
   </component>
 </project>

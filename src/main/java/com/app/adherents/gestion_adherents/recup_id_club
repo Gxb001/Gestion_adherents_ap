@@ -1,0 +1,29 @@
+import org.w3c.dom.*;
+import javax.xml.parsers.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            // Charger le fichier XML
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document document = builder.parse(new File("votre_fichier.xml"));
+
+            // Récupérer tous les éléments "club" du document
+            NodeList clubList = document.getElementsByTagName("club");
+
+            for (int i = 0; i < clubList.getLength(); i++) {
+                Element club = (Element) clubList.item(i);
+
+                // Récupérer l'attribut "id" de l'élément "club"
+                String id = club.getAttribute("id");
+
+                // Afficher l'ID
+                System.out.println("ID du club : " + id);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

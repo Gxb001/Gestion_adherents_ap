@@ -19,7 +19,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 public class XMLFileManipulation {
 
@@ -54,13 +57,11 @@ public class XMLFileManipulation {
                         Element balise = (Element) childNodes.item(0);
                         String result = balise.getTextContent();
                         return result;
+                    } else {
+                        throw new Exception("La balise " + baliseAAfficher + " n'existe pas sous l'ID " + id + ".");
                     }
                 }
             }
-
-            // Si l'ID spécifié n'est pas trouvé ou la balise n'est pas trouvée, vous pouvez renvoyer une valeur par défaut ou lancer une exception.
-            throw new Exception("La balise " + baliseAAfficher + " n'existe pas sous l'ID " + id + ".");
-
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
             return "Erreur lors de la lecture du fichier XML : " + e.getMessage();
@@ -68,7 +69,9 @@ public class XMLFileManipulation {
             e.printStackTrace();
             return "Erreur : " + e.getMessage();
         }
+        return xmlFilePath;
     }
+
 
 
     /*
@@ -223,6 +226,56 @@ public class XMLFileManipulation {
         }
         return "";
     }
+    public static String[] afficherNomPrenomResponsable(String xmlFilePath, String balisePrincipale, String id) {
+        try {
+            // Configuration du parseur DOM
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+
+            // Chargement du fichier XML
+            File xmlFile = new File(xmlFilePath);
+
+            if (!xmlFile.exists()) {
+                return new String[] {"Le fichier XML n'existe pas."};
+            }
+
+            // Analyse du fichier XML
+            Document document = builder.parse(xmlFile);
+            NodeList nodeList = document.getElementsByTagName(balisePrincipale);
+
+            // Parcours des éléments à la recherche de l'ID spécifié
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Element element = (Element) nodeList.item(i);
+                String elementID = element.getAttribute("id");
+
+                if (elementID.equals(id)) {
+                    // Recherche des balises Nom_responsable et Prenom_responsable
+                    NodeList nomResponsableNodes = element.getElementsByTagName("Nom_responsable");
+                    NodeList prenomResponsableNodes = element.getElementsByTagName("Prenom_responsable");
+
+                    if (nomResponsableNodes.getLength() > 0 && prenomResponsableNodes.getLength() > 0) {
+                        Element nomResponsable = (Element) nomResponsableNodes.item(0);
+                        Element prenomResponsable = (Element) prenomResponsableNodes.item(0);
+
+                        String nom = nomResponsable.getTextContent();
+                        String prenom = prenomResponsable.getTextContent();
+
+                        return new String[] {nom, prenom};
+                    } else {
+                        throw new Exception("Les balises du responsable légal n'existent pas sous l'ID " + id + ".");
+                    }
+                }
+            }
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
+            return new String[] {"Erreur lors de la lecture du fichier XML : " + e.getMessage()};
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new String[] {"Erreur : " + e.getMessage()};
+        }
+        return new String[] {xmlFilePath};
+    }
+
 
     /*
     Recupere le nombre d'elements dans une fichier xml, par exemple si il y à 20 adherents cela renvoie 20.
@@ -242,7 +295,6 @@ public class XMLFileManipulation {
                 Node lastBal = BalList.item(BalList.getLength() - 1);
                 Element lastElement = (Element) lastBal;
                 String lastId = lastElement.getAttribute("id");
-                //System.out.println("Le dernier ID est : " + lastId);
                 return Integer.parseInt(lastId);
             } else {
                 System.out.println("Aucun élément <"+ balisePrincipale.toLowerCase() +"> trouvé dans le fichier XML.");
@@ -252,12 +304,68 @@ public class XMLFileManipulation {
         }
         return 0;
     }
+    public static List<String> afficherArmesPratiquées(String xmlFilePath, String balisePrincipale, String id) {
+        List<String> armesPratiquées = new ArrayList<>();
+
+        try {
+            // Configuration du parseur DOM
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+
+            // Chargement du fichier XML
+            File xmlFile = new File(xmlFilePath);
+
+            if (!xmlFile.exists()) {
+                return Collections.singletonList("Le fichier XML n'existe pas.");
+            }
+
+            // Analyse du fichier XML
+            Document document = builder.parse(xmlFile);
+            NodeList nodeList = document.getElementsByTagName(balisePrincipale);
+
+            // Parcours des éléments à la recherche de l'ID spécifié
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Element element = (Element) nodeList.item(i);
+                String elementID = element.getAttribute("id");
+
+                if (elementID.equals(id)) {
+                    // Recherche des balises Arme
+                    NodeList armesNodes = element.getElementsByTagName("Arme");
+
+                    for (int j = 0; j < armesNodes.getLength(); j++) {
+                        Element arme = (Element) armesNodes.item(j);
+                        armesPratiquées.add(arme.getTextContent());
+                    }
+
+                    if (armesPratiquées.isEmpty()) {
+                        throw new Exception("L'adhérent n'a pas spécifié d'armes pratiquées sous l'ID " + id + ".");
+                    }
+
+                    return armesPratiquées;
+                }
+            }
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
+            return Collections.singletonList("Erreur lors de la lecture du fichier XML : " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Collections.singletonList("Erreur : " + e.getMessage());
+        }
+
+        return Collections.singletonList(xmlFilePath);
+    }
+
 
     public static void main(String[] args) {
         try {   // Chemin vers votre fichier XML
-
+            String xmlFilePath = JSONReader.getJsonValue("adherent");
+            List result = afficherArmesPratiquées(xmlFilePath, "adhérent", "1");
+            System.out.println(result);
+            //String rnom = afficherNomPrenomResponsable(xmlFilePath, "adhérent", "1")[0];
+            //String rprenom = afficherNomPrenomResponsable(xmlFilePath, "adhérent", "1")[1];
+            //System.out.println("Le responsable légal se nome : " + rnom + " " + rprenom);
             // Appel de la fonction pour afficher l'adresse du club avec l'ID "1"
-            //String result = afficherXML(xmlFilePath, "categorie", "2", "nom");
+            //String result = afficherXML(xmlFilePath, "adhérent", "2", "Responsable_Légal");
             //System.out.println(result);
             //System.out.println(last_id(xmlFilePath, "categorie"));
             //System.out.println(comparerBalisesXML(xmlFilePath, "club", "nom", "test"));
