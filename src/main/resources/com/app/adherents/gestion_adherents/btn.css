@@ -1,0 +1,45 @@
+/* Style du bouton de fermeture */
+#closebtn {
+    -fx-font-size: 16px; /* Taille de la police */
+    -fx-text-fill: red; /* Couleur du texte */
+    -fx-background-color: transparent; /* Fond transparent */
+    -fx-border-color: transparent; /* Bordure transparente */
+}
+
+/* Style pour le survol du bouton */
+#closebtn:hover {
+    -fx-text-fill: darkred; /* Couleur du texte au survol */
+    -fx-cursor: hand; /* Curseur de la souris */
+}
+#btnadd:hover {
+    -fx-text-fill: darkgreen; /* Couleur du texte au survol */
+    -fx-cursor: hand; /* Curseur de la souris */
+}
+#btnexp:hover {
+    -fx-text-fill: darkgreen; /* Couleur du texte au survol */
+    -fx-cursor: hand; /* Curseur de la souris */
+}
+#btnexpt:hover {
+    -fx-text-fill: darkgreen; /* Couleur du texte au survol */
+    -fx-cursor: hand; /* Curseur de la souris */
+}
+#ValidateButton:hover {
+    -fx-text-fill: darkgreen; /* Couleur du texte au survol */
+    -fx-cursor: hand; /* Curseur de la souris */
+}
+#CancelButton:hover {
+    -fx-text-fill: darkred; /* Couleur du texte au survol */
+    -fx-cursor: hand; /* Curseur de la souris */
+}
+#genreComboBox:hover {
+    -fx-cursor: hand; /* Curseur de la souris */
+}
+#pratiqueComboBox:hover {
+    -fx-cursor: hand; /* Curseur de la souris */
+}
+#categorieComboBox:hover {
+    -fx-cursor: hand; /* Curseur de la souris */
+}
+#lateraliteComboBox:hover {
+    -fx-cursor: hand; /* Curseur de la souris */
+}

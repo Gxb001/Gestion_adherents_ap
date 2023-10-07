@@ -1,6 +1,5 @@
 package com.app.adherents.gestion_adherents.DataManip;
 
-import com.app.adherents.gestion_adherents.DataManip.JSONReader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -311,11 +310,12 @@ public class XMLFileManipulation {
 
     public static void main(String[] args) {
         try {   // Chemin vers votre fichier XML
-            String xmlFilePath = JSONReader.getJsonValue("adherent");
+            String xmlFilePath = JSONReader.getJsonValue("categorie");
 
             //List<String> nouvellesValeurArmes = Arrays.asList( "Fleuret", "Epée");
             //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Pratique_Escrime", nouvellesValeurArmes);
             //System.out.println(afficherArmesPratiquées(xmlFilePath, "adhérent", "1"));
+            System.out.println(afficherXML(xmlFilePath, "categorie", "1", "nom"));
 
             //List<String> nouvellesValeursResponsableLegal = Arrays.asList("test", "Michelle");
             //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Responsable_Légal", nouvellesValeursResponsableLegal);

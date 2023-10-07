@@ -4,23 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="fonction de modification OK">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/Class/ResponsableLegal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/paths.json" afterDir="false" />
+    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Orga project | reformat code">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/CSVExporter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/addAdherents.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/btn.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/Adherent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/Class/Adherent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/Club.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/Class/Club.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/JSONReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/JSONReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/ResponsableLegal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XMLFileManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XMLListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLListing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/adherent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/categorie.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/categorie.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/club.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/club.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/indentation xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/paths.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/app.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +26,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -55,35 +49,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;V1.0&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Users/Gabriel/Desktop/Nouveau dossier/Cours/BTS Seconde Année/Programmation OO/TPS/TP-4/Test_Unitaires&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "V1.5",
+    "last_opened_file_path": "D:/Users/Gabriel/Desktop/Nouveau dossier/Cours/BTS Seconde Année/Programmation OO/TPS/TP-4/Test_Unitaires",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\gabri\Desktop\GA-AP\Gestion_adherents_ap\src\main\java\com\app\adherents\gestion_adherents" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Gabriel\Desktop\Gestion_adherents_ap\src\main\resources\com\app\adherents\gestion_adherents" />
       <recent name="D:\Users\Gabriel\Desktop\Gestion_adherents_ap\src\main\java\com\app\adherents\gestion_adherents\DataManip" />
       <recent name="D:\Users\Gabriel\Desktop\Gestion_adherents_ap\src\main\java\com\app\adherents\gestion_adherents\XML" />
     </key>
@@ -199,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696529180708</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Orga project | reformat code">
+      <option name="closed" value="true" />
+      <created>1696685263565</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1696685263565</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +227,7 @@
     <MESSAGE value="fixage erreurs list club &amp; id club" />
     <MESSAGE value="fonctions get armes, get infos respon legal OK" />
     <MESSAGE value="fonction de modification OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="fonction de modification OK" />
+    <MESSAGE value="Orga project | reformat code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Orga project | reformat code" />
   </component>
 </project>
