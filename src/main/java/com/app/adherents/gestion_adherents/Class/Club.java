@@ -1,4 +1,4 @@
-package com.app.adherents.gestion_adherents;
+package com.app.adherents.gestion_adherents.Class;
 
 public class Club {
     private int id;

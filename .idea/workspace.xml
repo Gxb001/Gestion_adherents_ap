@@ -4,11 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="fonctions get armes, get infos respon legal OK">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/indentation xml" afterDir="false" />
+    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="fonction de modification OK">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/Class/ResponsableLegal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/paths.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XMLFileManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XMLFileManipulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/adherent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/adherent.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/Adherent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/Class/Adherent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/Club.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/Class/Club.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/JSONReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/JSONReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/ResponsableLegal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XMLFileManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XMLListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLListing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/adherent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/categorie.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/categorie.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/club.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/club.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/indentation xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/paths.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +66,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;V1.0&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Users/Gabriel/Desktop/Gestion_adherents_ap/json-simple-1.1.1.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Users/Gabriel/Desktop/Nouveau dossier/Cours/BTS Seconde Année/Programmation OO/TPS/TP-4/Test_Unitaires&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -71,6 +83,10 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\gabri\Desktop\GA-AP\Gestion_adherents_ap\src\main\java\com\app\adherents\gestion_adherents" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Gabriel\Desktop\Gestion_adherents_ap\src\main\java\com\app\adherents\gestion_adherents\DataManip" />
+      <recent name="D:\Users\Gabriel\Desktop\Gestion_adherents_ap\src\main\java\com\app\adherents\gestion_adherents\XML" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.BaseApp">
     <configuration name="BaseApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -78,7 +94,7 @@
       <module name="Gestion_adherents" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.app.adherents.gestion_adherents.*" />
+          <option name="PATTERN" value="com.app.adherents.gestion_adherents.DataManip.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -87,11 +103,11 @@
       </method>
     </configuration>
     <configuration name="JSONReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.app.adherents.gestion_adherents.JSONReader" />
+      <option name="MAIN_CLASS_NAME" value="com.app.adherents.gestion_adherents.DataManip.JSONReader" />
       <module name="Gestion_adherents" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.app.adherents.gestion_adherents.*" />
+          <option name="PATTERN" value="com.app.adherents.gestion_adherents.DataManip.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,11 +116,11 @@
       </method>
     </configuration>
     <configuration name="XMLFileManipulation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.app.adherents.gestion_adherents.XMLFileManipulation" />
+      <option name="MAIN_CLASS_NAME" value="com.app.adherents.gestion_adherents.DataManip.XMLFileManipulation" />
       <module name="Gestion_adherents" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.app.adherents.gestion_adherents.*" />
+          <option name="PATTERN" value="com.app.adherents.gestion_adherents.DataManip.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -115,19 +131,6 @@
     <configuration name="json-simple-1.1.1.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/json-simple-1.1.1.jar" />
       <method v="2" />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Gestion_adherents" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Gestion_adherents" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <recent_temporary>
       <list>
@@ -188,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696524222650</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fonction de modification OK">
+      <option name="closed" value="true" />
+      <created>1696529180708</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696529180708</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +223,7 @@
     <MESSAGE value="fichier json pour stocker les path xml" />
     <MESSAGE value="fixage erreurs list club &amp; id club" />
     <MESSAGE value="fonctions get armes, get infos respon legal OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="fonctions get armes, get infos respon legal OK" />
+    <MESSAGE value="fonction de modification OK" />
+    <option name="LAST_COMMIT_MESSAGE" value="fonction de modification OK" />
   </component>
 </project>

@@ -1,5 +1,7 @@
-package com.app.adherents.gestion_adherents;
+package com.app.adherents.gestion_adherents.DataManip;
 
+import com.app.adherents.gestion_adherents.Class.Adherent;
+import com.app.adherents.gestion_adherents.Class.ResponsableLegal;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;

@@ -1,0 +1,5 @@
+{
+  "adherent": "src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml",
+  "club": "src/main/java/com/app/adherents/gestion_adherents/XML/club.xml",
+  "categorie": "src/main/java/com/app/adherents/gestion_adherents/XML/categorie.xml"
+}

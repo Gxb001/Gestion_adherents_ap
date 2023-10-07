@@ -1,5 +1,17 @@
-package com.app.adherents.gestion_adherents;
+package com.app.adherents.gestion_adherents.Class;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Adherent {
@@ -242,6 +254,57 @@ public class Adherent {
                 ", pratiqueEscrimeArmes=" + pratiqueEscrimeArmes +
                 ", responsableLegal=" + responsableLegal +
                 '}';
+    }
+
+    public static List<String> afficherArmesPratiquées(String xmlFilePath, String balisePrincipale, String id) {
+        List<String> armesPratiquées = new ArrayList<>();
+
+        try {
+            // Configuration du parseur DOM
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+
+            // Chargement du fichier XML
+            File xmlFile = new File(xmlFilePath);
+
+            if (!xmlFile.exists()) {
+                return Collections.singletonList("Le fichier XML n'existe pas.");
+            }
+
+            // Analyse du fichier XML
+            Document document = builder.parse(xmlFile);
+            NodeList nodeList = document.getElementsByTagName(balisePrincipale);
+
+            // Parcours des éléments à la recherche de l'ID spécifié
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Element element = (Element) nodeList.item(i);
+                String elementID = element.getAttribute("id");
+
+                if (elementID.equals(id)) {
+                    // Recherche des balises Arme
+                    NodeList armesNodes = element.getElementsByTagName("Arme");
+
+                    for (int j = 0; j < armesNodes.getLength(); j++) {
+                        Element arme = (Element) armesNodes.item(j);
+                        armesPratiquées.add(arme.getTextContent());
+                    }
+
+                    if (armesPratiquées.isEmpty()) {
+                        throw new Exception("L'adhérent n'a pas spécifié d'armes pratiquées sous l'ID " + id + ".");
+                    }
+
+                    return armesPratiquées;
+                }
+            }
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
+            return Collections.singletonList("Erreur lors de la lecture du fichier XML : " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Collections.singletonList("Erreur : " + e.getMessage());
+        }
+
+        return Collections.singletonList(xmlFilePath);
     }
 }
 

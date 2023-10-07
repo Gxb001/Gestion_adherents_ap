@@ -8,4 +8,8 @@ module com.app.adherents.gestion_adherents {
 
     opens com.app.adherents.gestion_adherents to javafx.fxml;
     exports com.app.adherents.gestion_adherents;
+    exports com.app.adherents.gestion_adherents.DataManip;
+    opens com.app.adherents.gestion_adherents.DataManip to javafx.fxml;
+    exports com.app.adherents.gestion_adherents.Class;
+    opens com.app.adherents.gestion_adherents.Class to javafx.fxml;
 }

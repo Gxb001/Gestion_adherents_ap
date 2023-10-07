@@ -1,5 +1,10 @@
 package com.app.adherents.gestion_adherents;
 
+import com.app.adherents.gestion_adherents.Class.Adherent;
+import com.app.adherents.gestion_adherents.Class.Club;
+import com.app.adherents.gestion_adherents.DataManip.JSONReader;
+import com.app.adherents.gestion_adherents.DataManip.XMLFileManipulation;
+import com.app.adherents.gestion_adherents.DataManip.XMLListing;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -61,8 +66,7 @@ public class DefaultController {
                 Club club = new Club(i, nom, adresse, contact, tel, mail, site);
                 try {
                     clubs.add(club);
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 

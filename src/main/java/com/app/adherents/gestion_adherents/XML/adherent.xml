@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><adhérents>
     <adhérent id="1">
-        <Nom>test</Nom>
+        <Nom>paul</Nom>
         <Prenom>Julie</Prenom>
         <DateNaissance>1995-03-15</DateNaissance>
         <Genre>Femme</Genre>
@@ -22,7 +22,7 @@
             <Arme>Épée</Arme>
         </Pratique_Escrime>
         <Responsable_Légal>
-            <Nom_responsable>Jean</Nom_responsable>
+            <Nom_responsable>test</Nom_responsable>
             <Prenom_responsable>Michelle</Prenom_responsable>
         </Responsable_Légal>
     </adhérent>

@@ -1,5 +1,6 @@
-package com.app.adherents.gestion_adherents;
+package com.app.adherents.gestion_adherents.DataManip;
 
+import com.app.adherents.gestion_adherents.DataManip.JSONReader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -15,12 +16,9 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.List;
 
 public class XMLFileManipulation {
 
@@ -69,9 +67,6 @@ public class XMLFileManipulation {
         }
         return xmlFilePath;
     }
-
-
-
     /*
     verifie si une valeur est egal à la nouvelle
      */
@@ -111,23 +106,20 @@ public class XMLFileManipulation {
             return true; // Aucune correspondance trouvée, renvoie true.
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
-            journaliser("Erreur lors de la lecture du fichier XML : " + e.getMessage());
             return false; // Erreur lors de la lecture du fichier XML.
         }
     }
 
 
     // Function pour modifier la valeur d'une balise spécifiée
-    public static boolean modifierValeurBalise(String xmlFilePath, String balisePrincipale, String id, String baliseAModifier, String nouvelleValeur) {
+    public static boolean modifierBalise(String xmlFilePath, String balisePrincipale, String id, String baliseAModifier, String nouvelleValeur) {
         try {
             // Appel de la fonction pour afficher la valeur actuelle
             String valeurActuelle = afficherXML(xmlFilePath, balisePrincipale, id, baliseAModifier);
 
             if (valeurActuelle.equals("Le fichier XML n'existe pas.") || valeurActuelle.equals("Erreur lors de la lecture du fichier XML")) {
-                journaliser("Erreur lors de la lecture du fichier XML");
                 return false; // Échec de la lecture du fichier XML
             } else if (valeurActuelle.equals(nouvelleValeur)) {
-                journaliser("La nouvelle valeur est identique à l'ancienne.");
                 System.out.println("La nouvelle valeur est identique à l'ancienne.");
                 return false; // La nouvelle valeur est identique à l'ancienne
             }
@@ -140,7 +132,6 @@ public class XMLFileManipulation {
             File xmlFile = new File(xmlFilePath);
 
             if (!xmlFile.exists()) {
-                journaliser("Le fichier XML n'existe pas.");
                 return false; // Le fichier XML n'existe pas
             }
 
@@ -169,7 +160,6 @@ public class XMLFileManipulation {
                             DOMSource source = new DOMSource(document);
                             StreamResult result = new StreamResult(xmlFile);
                             transformer.transform(source, result);
-                            journaliser("La balise " + baliseAModifier + " a été modifiée avec succès.");
                             return true; // Modification réussie
                         }
                     }
@@ -178,43 +168,14 @@ public class XMLFileManipulation {
             }
 
             // Si l'ID spécifié n'est pas trouvé
-            journaliser("L'ID " + id + " n'existe pas dans la balise principale " + balisePrincipale);
             return false; // L'ID spécifié n'a pas été trouvé
         } catch (ParserConfigurationException | SAXException | IOException | TransformerException e) {
             e.printStackTrace();
-            journaliser("Erreur lors de la modification du fichier XML : " + e.getMessage());
             return false; // Erreur lors de la modification du fichier XML
         }
     }
 
-
     // Fonction pour journaliser les actions
-    private static void journaliser(String message) {
-        BufferedWriter writer = null;
-        try {
-            // Chemin du fichier de journal
-            String journalFilePath = "journal.log";
-
-            // Création d'un objet de format de date
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String timestamp = dateFormat.format(new Date());
-
-            // Écriture du message dans le fichier de journal avec horodatage
-            writer = new BufferedWriter(new FileWriter(journalFilePath, true));
-            writer.write("[" + timestamp + "] " + message);
-            writer.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (writer != null) {
-                    writer.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
 
     private static String getElementTextContent(Element element, String tagName) {
@@ -224,56 +185,6 @@ public class XMLFileManipulation {
         }
         return "";
     }
-    public static String[] afficherNomPrenomResponsable(String xmlFilePath, String balisePrincipale, String id) {
-        try {
-            // Configuration du parseur DOM
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-
-            // Chargement du fichier XML
-            File xmlFile = new File(xmlFilePath);
-
-            if (!xmlFile.exists()) {
-                return new String[] {"Le fichier XML n'existe pas."};
-            }
-
-            // Analyse du fichier XML
-            Document document = builder.parse(xmlFile);
-            NodeList nodeList = document.getElementsByTagName(balisePrincipale);
-
-            // Parcours des éléments à la recherche de l'ID spécifié
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                Element element = (Element) nodeList.item(i);
-                String elementID = element.getAttribute("id");
-
-                if (elementID.equals(id)) {
-                    // Recherche des balises Nom_responsable et Prenom_responsable
-                    NodeList nomResponsableNodes = element.getElementsByTagName("Nom_responsable");
-                    NodeList prenomResponsableNodes = element.getElementsByTagName("Prenom_responsable");
-
-                    if (nomResponsableNodes.getLength() > 0 && prenomResponsableNodes.getLength() > 0) {
-                        Element nomResponsable = (Element) nomResponsableNodes.item(0);
-                        Element prenomResponsable = (Element) prenomResponsableNodes.item(0);
-
-                        String nom = nomResponsable.getTextContent();
-                        String prenom = prenomResponsable.getTextContent();
-
-                        return new String[] {nom, prenom};
-                    } else {
-                        throw new Exception("Les balises du responsable légal n'existent pas sous l'ID " + id + ".");
-                    }
-                }
-            }
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            e.printStackTrace();
-            return new String[] {"Erreur lors de la lecture du fichier XML : " + e.getMessage()};
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new String[] {"Erreur : " + e.getMessage()};
-        }
-        return new String[] {xmlFilePath};
-    }
-
 
     /*
     Recupere le nombre d'elements dans une fichier xml, par exemple si il y à 20 adherents cela renvoie 20.
@@ -302,59 +213,8 @@ public class XMLFileManipulation {
         }
         return 0;
     }
-    public static List<String> afficherArmesPratiquées(String xmlFilePath, String balisePrincipale, String id) {
-        List<String> armesPratiquées = new ArrayList<>();
 
-        try {
-            // Configuration du parseur DOM
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-
-            // Chargement du fichier XML
-            File xmlFile = new File(xmlFilePath);
-
-            if (!xmlFile.exists()) {
-                return Collections.singletonList("Le fichier XML n'existe pas.");
-            }
-
-            // Analyse du fichier XML
-            Document document = builder.parse(xmlFile);
-            NodeList nodeList = document.getElementsByTagName(balisePrincipale);
-
-            // Parcours des éléments à la recherche de l'ID spécifié
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                Element element = (Element) nodeList.item(i);
-                String elementID = element.getAttribute("id");
-
-                if (elementID.equals(id)) {
-                    // Recherche des balises Arme
-                    NodeList armesNodes = element.getElementsByTagName("Arme");
-
-                    for (int j = 0; j < armesNodes.getLength(); j++) {
-                        Element arme = (Element) armesNodes.item(j);
-                        armesPratiquées.add(arme.getTextContent());
-                    }
-
-                    if (armesPratiquées.isEmpty()) {
-                        throw new Exception("L'adhérent n'a pas spécifié d'armes pratiquées sous l'ID " + id + ".");
-                    }
-
-                    return armesPratiquées;
-                }
-            }
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            e.printStackTrace();
-            return Collections.singletonList("Erreur lors de la lecture du fichier XML : " + e.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Collections.singletonList("Erreur : " + e.getMessage());
-        }
-
-        return Collections.singletonList(xmlFilePath);
-    }
-
-
-    public static boolean modifierValeurBalise(String xmlFilePath, String balisePrincipale, String id, String baliseAModifier, List<String> nouvellesValeurs) {
+    public static boolean modifierGroupeBalises(String xmlFilePath, String balisePrincipale, String id, String baliseAModifier, List<String> nouvellesValeurs) {
         try {
             // Configuration du parseur DOM
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -457,12 +317,15 @@ public class XMLFileManipulation {
             //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Pratique_Escrime", nouvellesValeurArmes);
             //System.out.println(afficherArmesPratiquées(xmlFilePath, "adhérent", "1"));
 
-            List<String> nouvellesValeursResponsableLegal = Arrays.asList("test", "Michelle");
-            modifierValeurBalise(xmlFilePath, "adhérent", "1", "Responsable_Légal", nouvellesValeursResponsableLegal);
+            //List<String> nouvellesValeursResponsableLegal = Arrays.asList("test", "Michelle");
+            //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Responsable_Légal", nouvellesValeursResponsableLegal);
+            //System.out.println(afficherXML(xmlFilePath, "adhérent", "1", "Nom"));
+            //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Nom", "paul");
 
-            System.out.println(afficherNomPrenomResponsable(xmlFilePath, "adhérent", "1")[0]);
-            System.out.println(afficherNomPrenomResponsable(xmlFilePath, "adhérent", "1")[1]);
-            System.out.println(afficherArmesPratiquées(xmlFilePath, "adhérent", "1"));
+            //System.out.println(afficherNomPrenomResponsable(xmlFilePath, "adhérent", "1")[0]);
+            //System.out.println(afficherNomPrenomResponsable(xmlFilePath, "adhérent", "1")[1]);
+            //System.out.println(afficherArmesPratiquées(xmlFilePath, "adhérent", "1"));
+            //System.out.println(afficherXML(xmlFilePath, "adhérent", "1", "Nom"));
 
 
             //List<String> nouvellesValeursArmes = Arrays.asList("Fleuret");

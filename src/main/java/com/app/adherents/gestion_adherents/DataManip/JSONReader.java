@@ -1,15 +1,16 @@
-package com.app.adherents.gestion_adherents;
+package com.app.adherents.gestion_adherents.DataManip;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
 import java.io.FileReader;
 import java.io.IOException;
 
 public class JSONReader {
     public static String getJsonValue(String key) {
         // Spécifiez le chemin du fichier JSON ici
-        String filePath = "src/main/java/com/app/adherents/gestion_adherents/paths.json";
+        String filePath = "src/main/java/com/app/adherents/gestion_adherents/DataManip/paths.json";
 
         JSONParser parser = new JSONParser();
 
