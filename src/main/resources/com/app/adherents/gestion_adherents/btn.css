@@ -1,45 +1,49 @@
-/* Style du bouton de fermeture */
 #closebtn {
-    -fx-font-size: 16px; /* Taille de la police */
-    -fx-text-fill: red; /* Couleur du texte */
-    -fx-background-color: transparent; /* Fond transparent */
-    -fx-border-color: transparent; /* Bordure transparente */
+    -fx-font-size: 16px;
+    -fx-text-fill: red;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
 
-/* Style pour le survol du bouton */
 #closebtn:hover {
-    -fx-text-fill: darkred; /* Couleur du texte au survol */
-    -fx-cursor: hand; /* Curseur de la souris */
-}
-#btnadd:hover {
-    -fx-text-fill: darkgreen; /* Couleur du texte au survol */
-    -fx-cursor: hand; /* Curseur de la souris */
-}
-#btnexp:hover {
-    -fx-text-fill: darkgreen; /* Couleur du texte au survol */
-    -fx-cursor: hand; /* Curseur de la souris */
-}
-#btnexpt:hover {
-    -fx-text-fill: darkgreen; /* Couleur du texte au survol */
-    -fx-cursor: hand; /* Curseur de la souris */
+    -fx-text-fill: darkred;
+    -fx-cursor: hand;
 }
 #ValidateButton:hover {
-    -fx-text-fill: darkgreen; /* Couleur du texte au survol */
-    -fx-cursor: hand; /* Curseur de la souris */
+    -fx-text-fill: darkgreen;
+    -fx-cursor: hand;
 }
 #CancelButton:hover {
-    -fx-text-fill: darkred; /* Couleur du texte au survol */
-    -fx-cursor: hand; /* Curseur de la souris */
+    -fx-text-fill: darkred;
+    -fx-cursor: hand;
 }
 #genreComboBox:hover {
-    -fx-cursor: hand; /* Curseur de la souris */
+    -fx-cursor: hand;
 }
 #pratiqueComboBox:hover {
-    -fx-cursor: hand; /* Curseur de la souris */
+    -fx-cursor: hand;
 }
 #categorieComboBox:hover {
-    -fx-cursor: hand; /* Curseur de la souris */
+    -fx-cursor: hand;
 }
 #lateraliteComboBox:hover {
-    -fx-cursor: hand; /* Curseur de la souris */
+    -fx-cursor: hand;
 }
+
+
+#btnadd, #btnexp, #btnexpt {
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+
+#btnadd:hover, #btnexp:hover, #btnexpt:hover {
+    -fx-background-color: #2980b9;
+    -fx-cursor: hand;
+}
+

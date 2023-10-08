@@ -144,7 +144,7 @@ public class DefaultController {
     }
 
     public void refreshAdherents() {
-        adherentObservableList.clear();
+        /*adherentObservableList.clear();
         String XMLPath_adherent = JSONReader.getJsonValue("adherent");
         try {
             // Chargez les adhérents à partir de votre fichier XML
@@ -153,7 +153,8 @@ public class DefaultController {
         } catch (Exception e) {
             e.printStackTrace();
             // Gérez l'exception ici (affichage d'un message d'erreur par exemple)
-        }
+        }*/
+        adherenttable.refresh();
     }
 
     public void exporter() {

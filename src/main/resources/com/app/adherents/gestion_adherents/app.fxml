@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
+<?import javafx.scene.text.*?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.adherents.gestion_adherents.DefaultController">
    <children>
       <TableView fx:id="adherenttable" layoutX="23.0" layoutY="112.0" prefHeight="400.0" prefWidth="750.0">
@@ -29,17 +23,20 @@
             <Font name="Trebuchet MS" size="33.0" />
          </font>
       </Text>
-      <Button fx:id="btnadd" layoutX="398.0" layoutY="78.0" mnemonicParsing="false" onMouseClicked="#getAddView" stylesheets="@btn.css" text="Ajouter">
+       <Button fx:id="btnadd" layoutX="392.0" layoutY="62.0" mnemonicParsing="false" onMouseClicked="#getAddView"
+               prefHeight="40.0" prefWidth="107.0" stylesheets="@btn.css" text="Ajouter">
          <font>
             <Font name="Yu Gothic Light" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnexp" layoutX="481.0" layoutY="78.0" mnemonicParsing="false" onMouseClicked="#refreshAdherents" stylesheets="@btn.css" text="Actualiser">
+       <Button fx:id="btnexp" layoutX="511.0" layoutY="62.0" mnemonicParsing="false" onMouseClicked="#refreshAdherents"
+               prefHeight="40.0" prefWidth="107.0" stylesheets="@btn.css" text="Actualiser">
          <font>
             <Font name="Yu Gothic Light" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnexpt" layoutX="564.0" layoutY="79.0" mnemonicParsing="false" onMouseClicked="#exporter" stylesheets="@btn.css" text="Exporter">
+       <Button fx:id="btnexpt" layoutX="627.0" layoutY="62.0" mnemonicParsing="false" onMouseClicked="#exporter"
+               prefHeight="40.0" prefWidth="107.0" stylesheets="@btn.css" text="Exporter">
          <font>
             <Font name="Yu Gothic Light" size="12.0" />
          </font>

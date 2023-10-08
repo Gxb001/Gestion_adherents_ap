@@ -9,11 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="CSV updated OK">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/Main.java" afterDir="false" />
+    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Main Created for compile">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/AdherentXML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/FormatXML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/medias/actualiser.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/medias/ajouter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/medias/exportation.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/paths.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/paths.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/addAdherents.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/addAdherents.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/app.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/btn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/btn.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,35 +59,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "V1.5",
-    "last_opened_file_path": "D:/Users/Gabriel/Desktop/javafx-sdk-21/bin/vcruntime140_1.dll",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "project.propCompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;V1.5&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Users/Gabriel/Desktop/javafx-sdk-21/bin/vcruntime140_1.dll&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\gabri\Desktop\GA-AP\Gestion_adherents_ap\src\main\java\com\app\adherents\gestion_adherents" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Gabriel\Desktop\Gestion_adherents_ap\src\main\java\com\app\adherents\gestion_adherents\medias" />
       <recent name="D:\Users\Gabriel\Desktop\Gestion_adherents_ap\src\main\resources\com\app\adherents\gestion_adherents" />
       <recent name="D:\Users\Gabriel\Desktop\Gestion_adherents_ap\src\main\java\com\app\adherents\gestion_adherents\DataManip" />
       <recent name="D:\Users\Gabriel\Desktop\Gestion_adherents_ap\src\main\java\com\app\adherents\gestion_adherents\XML" />
@@ -93,8 +101,8 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="BaseApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.app.adherents.gestion_adherents.BaseApp" />
+    <configuration name="AdherentXML" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.app.adherents.gestion_adherents.DataManip.AdherentXML" />
       <module name="Gestion_adherents" />
       <extension name="coverage">
         <pattern>
@@ -106,8 +114,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JSONReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.app.adherents.gestion_adherents.DataManip.JSONReader" />
+    <configuration name="BaseApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.app.adherents.gestion_adherents.BaseApp" />
       <module name="Gestion_adherents" />
       <extension name="coverage">
         <pattern>
@@ -152,10 +160,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.AdherentXML" />
         <item itemvalue="Application.BaseApp" />
         <item itemvalue="Application.XMLFileManipulation" />
         <item itemvalue="JAR Application.json-simple-1.1.1.jar" />
-        <item itemvalue="Application.JSONReader" />
       </list>
     </recent_temporary>
   </component>
@@ -241,18 +249,73 @@
       <option name="project" value="LOCAL" />
       <updated>1696724964258</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Main Created for compile">
+      <option name="closed" value="true" />
+      <created>1696788069908</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1696788069908</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="V1.5" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="V1.0" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="V1.5" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -269,6 +332,7 @@
     <MESSAGE value="Orga project | reformat code" />
     <MESSAGE value="fonctionne parfaitement" />
     <MESSAGE value="CSV updated OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="CSV updated OK" />
+    <MESSAGE value="Main Created for compile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Main Created for compile" />
   </component>
 </project>
