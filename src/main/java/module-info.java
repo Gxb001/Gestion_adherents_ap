@@ -5,7 +5,6 @@ module com.app.adherents.gestion_adherents {
     requires com.fasterxml.jackson.databind;
     requires json.simple;
 
-
     opens com.app.adherents.gestion_adherents to javafx.fxml;
     exports com.app.adherents.gestion_adherents;
     exports com.app.adherents.gestion_adherents.DataManip;
