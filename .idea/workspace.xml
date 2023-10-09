@@ -9,18 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Main Created for compile">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/AdherentXML.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/FormatXML.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/medias/actualiser.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/medias/ajouter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/medias/exportation.png" afterDir="false" />
+    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Files updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/addAdherents.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/addAdherents.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/app.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/btn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/btn.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696788069908</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Files updated">
+      <option name="closed" value="true" />
+      <created>1696793979689</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1696793979689</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,6 +336,7 @@
     <MESSAGE value="fonctionne parfaitement" />
     <MESSAGE value="CSV updated OK" />
     <MESSAGE value="Main Created for compile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Main Created for compile" />
+    <MESSAGE value="Files updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Files updated" />
   </component>
 </project>

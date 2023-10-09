@@ -1,15 +1,16 @@
 package com.app.adherents.gestion_adherents;
 
+import com.app.adherents.gestion_adherents.DataManip.AdherentXML;
 import com.app.adherents.gestion_adherents.DataManip.JSONReader;
 import com.app.adherents.gestion_adherents.DataManip.XMLFileManipulation;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddController {
     @FXML
@@ -56,6 +57,12 @@ public class AddController {
     private TextField nomResponsableTextField;
     @FXML
     private Button closebtn;
+    @FXML
+    private CheckBox armefleurer;
+    @FXML
+    private CheckBox armeepee;
+    @FXML
+    private CheckBox armesabre;
 
     public void initialize() {
         // Initialisation des ComboBox
@@ -77,9 +84,13 @@ public class AddController {
     @FXML
     private void save() {
         //verification des champs remplis
-        if (nomTextField.getText().isEmpty() || prenomTextField.getText().isEmpty() || dateNaissancePicker.getValue() == null || genreComboBox.getValue() == null || nomNaissanceTextField.getText().isEmpty() || paysNaissanceTextField.getText().isEmpty() || villeNaissanceTextField.getText().isEmpty() || nationaliteTextField.getText().isEmpty() || adresseTextField.getText().isEmpty() || codePostalTextField.getText().isEmpty() || villeTextField.getText().isEmpty() || tel1TextField.getText().isEmpty() || emailTextField.getText().isEmpty() || pratiqueComboBox.getValue() == null || lateraliteComboBox.getValue() == null || categorieComboBox.getValue() == null || prenomResponsableTextField.getText().isEmpty() || nomResponsableTextField.getText().isEmpty()) {
+        if (nomTextField.getText().isEmpty() || prenomTextField.getText().isEmpty() || dateNaissancePicker.getValue() == null || genreComboBox.getValue() == null || nomNaissanceTextField.getText().isEmpty() || paysNaissanceTextField.getText().isEmpty() || villeNaissanceTextField.getText().isEmpty() || nationaliteTextField.getText().isEmpty() || adresseTextField.getText().isEmpty() || codePostalTextField.getText().isEmpty() || villeTextField.getText().isEmpty() || tel1TextField.getText().isEmpty() || emailTextField.getText().isEmpty() || pratiqueComboBox.getValue() == null || lateraliteComboBox.getValue() == null || categorieComboBox.getValue() == null || prenomResponsableTextField.getText().isEmpty() || nomResponsableTextField.getText().isEmpty() || (!armefleurer.isSelected() && !armeepee.isSelected() && !armesabre.isSelected())) {
             //affichage d'un message d'erreur
-            System.out.println("Veuillez remplir tous les champs");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText("Erreur de saisie");
+            alert.setContentText("Veuillez remplir tous les champs");
+            alert.showAndWait();
         } else {
             String XMLPath_adherent = JSONReader.getJsonValue("adherent");
             if (!XMLFileManipulation.comparerBalisesXML(XMLPath_adherent, "adherent", "Adresse_email", emailTextField.getText())) {
@@ -110,7 +121,35 @@ public class AddController {
                     String categorie = categorieComboBox.getValue();
                     String prenomResponsable = prenomResponsableTextField.getText();
                     String nomResponsable = nomResponsableTextField.getText();
+                    //recuperation des armes
+                    List<String> armesSelectionnees = new ArrayList<>();
+
+                    if (armefleurer.isSelected()) {
+                        armesSelectionnees.add("Fleuret");
+                    }
+
+                    if (armeepee.isSelected()) {
+                        armesSelectionnees.add("Epée");
+                    }
+
+                    if (armesabre.isSelected()) {
+                        armesSelectionnees.add("Sabre");
+                    }
                     //faire le code pour ajouter un adhérent
+                    try {
+                        AdherentXML.ajouterAdherent(JSONReader.getJsonValue("adherent"), nom, prenom, dateNaissance, genre, nomNaissance, paysNaissance, villeNaissance, nationalite, codePostal, adresse, ville, tel1, tel2, email, pratique, lateralite, 1, categorie, armesSelectionnees, nomResponsable, prenomResponsable);
+                        //affichage d'un message de confirmation
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Confirmation");
+                        alert.setHeaderText("Adhérent ajouté");
+                        alert.setContentText("L'adhérent a bien été ajouté");
+                        alert.showAndWait();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
+                        Stage stage = (Stage) ValidateButton.getScene().getWindow();
+                        stage.close();
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -140,6 +179,9 @@ public class AddController {
         categorieComboBox.setValue(null);
         prenomResponsableTextField.setText("");
         nomResponsableTextField.setText("");
+        armefleurer.setSelected(false);
+        armeepee.setSelected(false);
+        armesabre.setSelected(false);
     }
 
     public void close(MouseEvent mouseEvent) {

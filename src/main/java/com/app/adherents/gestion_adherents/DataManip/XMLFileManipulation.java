@@ -174,45 +174,6 @@ public class XMLFileManipulation {
         }
     }
 
-    // Fonction pour journaliser les actions
-
-
-    private static String getElementTextContent(Element element, String tagName) {
-        NodeList nodeList = element.getElementsByTagName(tagName);
-        if (nodeList.getLength() > 0) {
-            return nodeList.item(0).getTextContent();
-        }
-        return "";
-    }
-
-    /*
-    Recupere le nombre d'elements dans une fichier xml, par exemple si il y à 20 adherents cela renvoie 20.
-     */
-    public static int last_id(String xmlFilePath, String balisePrincipale) {
-        try {
-            File xmlFile = new File(xmlFilePath);
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(xmlFile);
-
-            doc.getDocumentElement().normalize();
-
-            NodeList BalList = doc.getElementsByTagName(balisePrincipale);
-
-            if (BalList.getLength() > 0) {
-                Node lastBal = BalList.item(BalList.getLength() - 1);
-                Element lastElement = (Element) lastBal;
-                String lastId = lastElement.getAttribute("id");
-                return Integer.parseInt(lastId);
-            } else {
-                System.out.println("Aucun élément <"+ balisePrincipale.toLowerCase() +"> trouvé dans le fichier XML.");
-            }
-        } catch (Exception e) {
-            System.err.println("Une erreur s'est produite : " + e.getMessage());
-        }
-        return 0;
-    }
-
     public static boolean modifierGroupeBalises(String xmlFilePath, String balisePrincipale, String id, String baliseAModifier, List<String> nouvellesValeurs) {
         try {
             // Configuration du parseur DOM
@@ -306,6 +267,47 @@ public class XMLFileManipulation {
             return false; // Erreur lors de la modification du fichier XML
         }
     }
+
+    // Fonction pour journaliser les actions
+
+
+    private static String getElementTextContent(Element element, String tagName) {
+        NodeList nodeList = element.getElementsByTagName(tagName);
+        if (nodeList.getLength() > 0) {
+            return nodeList.item(0).getTextContent();
+        }
+        return "";
+    }
+
+    /*
+    Recupere le nombre d'elements dans une fichier xml, par exemple si il y à 20 adherents cela renvoie 20.
+     */
+    public static int last_id(String xmlFilePath, String balisePrincipale) {
+        try {
+            File xmlFile = new File(xmlFilePath);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(xmlFile);
+
+            doc.getDocumentElement().normalize();
+
+            NodeList BalList = doc.getElementsByTagName(balisePrincipale);
+
+            if (BalList.getLength() > 0) {
+                Node lastBal = BalList.item(BalList.getLength() - 1);
+                Element lastElement = (Element) lastBal;
+                String lastId = lastElement.getAttribute("id");
+                return Integer.parseInt(lastId);
+            } else {
+                System.out.println("Aucun élément <"+ balisePrincipale.toLowerCase() +"> trouvé dans le fichier XML.");
+            }
+        } catch (Exception e) {
+            System.err.println("Une erreur s'est produite : " + e.getMessage());
+        }
+        return 0;
+    }
+
+
 
 
     public static void main(String[] args) {

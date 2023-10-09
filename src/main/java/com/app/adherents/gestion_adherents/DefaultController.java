@@ -6,6 +6,7 @@ import com.app.adherents.gestion_adherents.DataManip.CSVExporter;
 import com.app.adherents.gestion_adherents.DataManip.JSONReader;
 import com.app.adherents.gestion_adherents.DataManip.XMLFileManipulation;
 import com.app.adherents.gestion_adherents.DataManip.XMLListing;
+import javafx.animation.PauseTransition;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -82,14 +84,12 @@ public class DefaultController {
             e.printStackTrace();
         }
 
-        // Assurez-vous que les colonnes sont associées aux propriétés appropriées de la classe Adherent
         nomadherent.setCellValueFactory(new PropertyValueFactory<>("nom"));
         prenomadherent.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         genreadherent.setCellValueFactory(new PropertyValueFactory<>("genre"));
         emailadherent.setCellValueFactory(new PropertyValueFactory<>("adresseEmail"));
         categadherent.setCellValueFactory(new PropertyValueFactory<>("categorie"));
 
-        // Associez la colonne "representantadherentnom" à la propriété "nomResponsable" de la classe Adherent
         representantadherentnom.setCellValueFactory(cellData -> {
             Adherent adherent = cellData.getValue();
             String nomResponsable = "";
@@ -144,7 +144,7 @@ public class DefaultController {
     }
 
     public void refreshAdherents() {
-        /*adherentObservableList.clear();
+        adherentObservableList.clear();
         String XMLPath_adherent = JSONReader.getJsonValue("adherent");
         try {
             // Chargez les adhérents à partir de votre fichier XML
@@ -153,20 +153,27 @@ public class DefaultController {
         } catch (Exception e) {
             e.printStackTrace();
             // Gérez l'exception ici (affichage d'un message d'erreur par exemple)
-        }*/
-        adherenttable.refresh();
+        } finally {
+            adherenttable.refresh();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Mise à jour réussie");
+            alert.setHeaderText(null);
+            alert.setContentText("La liste des adhérents a été mise à jour avec succès !");
+            PauseTransition delai = new PauseTransition(javafx.util.Duration.seconds(2));
+            delai.setOnFinished(event -> alert.close());
+            alert.show();
+            delai.play();
+        }
     }
 
     public void exporter() {
         //listing des adherents
         String XMLPath_adherent = JSONReader.getJsonValue("adherent");
         try {
-            // Chargez les adhérents à partir de votre fichier XML
             List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
             CSVExporter.exporterAdherentsCSV();
         } catch (Exception e) {
             e.printStackTrace();
-            // Gérez l'exception ici (affichage d'un message d'erreur par exemple)
         }
 
     }
