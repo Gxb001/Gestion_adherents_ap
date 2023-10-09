@@ -47,3 +47,16 @@
     -fx-cursor: hand;
 }
 
+#adherenttable{
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-color: #94B34F;
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+
+
+

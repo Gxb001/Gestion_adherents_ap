@@ -1,5 +1,6 @@
 package com.app.adherents.gestion_adherents;
 
+import com.app.adherents.gestion_adherents.Class.Adherent;
 import com.app.adherents.gestion_adherents.DataManip.AdherentXML;
 import com.app.adherents.gestion_adherents.DataManip.JSONReader;
 import com.app.adherents.gestion_adherents.DataManip.XMLFileManipulation;
@@ -83,9 +84,7 @@ public class AddController {
 
     @FXML
     private void save() {
-        //verification des champs remplis
         if (nomTextField.getText().isEmpty() || prenomTextField.getText().isEmpty() || dateNaissancePicker.getValue() == null || genreComboBox.getValue() == null || nomNaissanceTextField.getText().isEmpty() || paysNaissanceTextField.getText().isEmpty() || villeNaissanceTextField.getText().isEmpty() || nationaliteTextField.getText().isEmpty() || adresseTextField.getText().isEmpty() || codePostalTextField.getText().isEmpty() || villeTextField.getText().isEmpty() || tel1TextField.getText().isEmpty() || emailTextField.getText().isEmpty() || pratiqueComboBox.getValue() == null || lateraliteComboBox.getValue() == null || categorieComboBox.getValue() == null || prenomResponsableTextField.getText().isEmpty() || nomResponsableTextField.getText().isEmpty() || (!armefleurer.isSelected() && !armeepee.isSelected() && !armesabre.isSelected())) {
-            //affichage d'un message d'erreur
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");
             alert.setHeaderText("Erreur de saisie");
@@ -119,6 +118,7 @@ public class AddController {
                     String pratique = pratiqueComboBox.getValue();
                     String lateralite = lateraliteComboBox.getValue();
                     String categorie = categorieComboBox.getValue();
+                    categorie = categorie.substring(0, categorie.indexOf(" "));
                     String prenomResponsable = prenomResponsableTextField.getText();
                     String nomResponsable = nomResponsableTextField.getText();
                     //recuperation des armes
@@ -127,15 +127,12 @@ public class AddController {
                     if (armefleurer.isSelected()) {
                         armesSelectionnees.add("Fleuret");
                     }
-
                     if (armeepee.isSelected()) {
                         armesSelectionnees.add("Epée");
                     }
-
                     if (armesabre.isSelected()) {
                         armesSelectionnees.add("Sabre");
                     }
-                    //faire le code pour ajouter un adhérent
                     try {
                         AdherentXML.ajouterAdherent(JSONReader.getJsonValue("adherent"), nom, prenom, dateNaissance, genre, nomNaissance, paysNaissance, villeNaissance, nationalite, codePostal, adresse, ville, tel1, tel2, email, pratique, lateralite, 1, categorie, armesSelectionnees, nomResponsable, prenomResponsable);
                         //affichage d'un message de confirmation
@@ -188,6 +185,38 @@ public class AddController {
         //fermer la fenetre
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         stage.close();
+    }
+
+    public void initDataAdherent(Adherent adherent) {
+        nomTextField.setText(adherent.getNom());
+        prenomTextField.setText(adherent.getPrenom());
+        dateNaissancePicker.getEditor().setText(adherent.getDateNaissance());
+        genreComboBox.setValue(adherent.getGenre());
+        nomNaissanceTextField.setText(adherent.getNomDeNaissance());
+        paysNaissanceTextField.setText(adherent.getPaysNaissance());
+        villeNaissanceTextField.setText(adherent.getVilleNaissance());
+        nationaliteTextField.setText(adherent.getNationalite());
+        adresseTextField.setText(adherent.getAdresse());
+        codePostalTextField.setText(adherent.getCodePostal());
+        villeTextField.setText(adherent.getVille());
+        tel1TextField.setText(adherent.getNumeroTelephone1());
+        tel2TextField.setText(adherent.getNumeroTelephone2());
+        emailTextField.setText(adherent.getAdresseEmail());
+        pratiqueComboBox.setValue(adherent.getPratique());
+        lateraliteComboBox.setValue(adherent.getLateralite());
+        categorieComboBox.setValue(adherent.getCategorie());
+        prenomResponsableTextField.setText(adherent.getResponsableLegal().getPrenomResponsable());
+        nomResponsableTextField.setText(adherent.getResponsableLegal().getNomResponsable());
+        List<String> armes = adherent.getPratiqueEscrimeArmes();
+        for (String arme : armes) {
+            if (arme.equals("Fleuret")) {
+                armefleurer.setSelected(true);
+            } else if (arme.equals("Epée")) {
+                armeepee.setSelected(true);
+            } else if (arme.equals("Sabre")) {
+                armesabre.setSelected(true);
+            }
+        }
     }
 
 }

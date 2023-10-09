@@ -268,7 +268,6 @@ public class XMLFileManipulation {
         }
     }
 
-    // Fonction pour journaliser les actions
 
 
     private static String getElementTextContent(Element element, String tagName) {
@@ -308,16 +307,51 @@ public class XMLFileManipulation {
     }
 
 
+    public static void deleteAdherent(String xmlFilePath, String idToDelete) throws Exception {
+        // Chargement du fichier XML
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+        Document doc = docBuilder.parse(xmlFilePath);
 
+        // Obtention de la liste des nœuds d'adhérent
+        NodeList adherentNodes = doc.getElementsByTagName("adhérent");
+
+        // Parcourir la liste des nœuds d'adhérent pour trouver celui à supprimer
+        for (int i = 0; i < adherentNodes.getLength(); i++) {
+            Element adherentElement = (Element) adherentNodes.item(i);
+            String id = adherentElement.getAttribute("id");
+
+            if (id.equals(idToDelete)) {
+                // Supprimer l'élément d'adhérent
+                adherentElement.getParentNode().removeChild(adherentElement);
+
+                // Enregistrer les modifications dans le fichier XML
+                TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                Transformer transformer = transformerFactory.newTransformer();
+                DOMSource source = new DOMSource(doc);
+                StreamResult result = new StreamResult(new File(xmlFilePath));
+                transformer.transform(source, result);
+
+                System.out.println("Adhérent avec ID " + idToDelete + " supprimé avec succès.");
+                FormatXML.formaterXML(xmlFilePath);
+                return;
+            }
+        }
+
+        System.out.println("Adhérent avec ID " + idToDelete + " non trouvé.");
+    }
 
     public static void main(String[] args) {
         try {   // Chemin vers votre fichier XML
-            String xmlFilePath = JSONReader.getJsonValue("categorie");
+            String xmlFilePath = JSONReader.getJsonValue("adherent");
 
             //List<String> nouvellesValeurArmes = Arrays.asList( "Fleuret", "Epée");
             //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Pratique_Escrime", nouvellesValeurArmes);
             //System.out.println(afficherArmesPratiquées(xmlFilePath, "adhérent", "1"));
-            System.out.println(afficherXML(xmlFilePath, "categorie", "1", "nom"));
+            //System.out.println(afficherXML(xmlFilePath, "categorie", "1", "nom"));
+            //System.out.println(afficherXML(xmlFilePath, "adhérent", "9", "Nom"));
+            //deleteAdherent(xmlFilePath, "9");
+            //System.out.println(afficherXML(xmlFilePath, "adhérent", "9", "Nom"));
 
             //List<String> nouvellesValeursResponsableLegal = Arrays.asList("test", "Michelle");
             //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Responsable_Légal", nouvellesValeursResponsableLegal);

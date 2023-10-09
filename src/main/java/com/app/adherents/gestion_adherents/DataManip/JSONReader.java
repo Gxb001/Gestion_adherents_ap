@@ -9,16 +9,13 @@ import java.io.IOException;
 
 public class JSONReader {
     public static String getJsonValue(String key) {
-        // Spécifiez le chemin du fichier JSON ici
         String filePath = "src/main/java/com/app/adherents/gestion_adherents/DataManip/paths.json";
 
         JSONParser parser = new JSONParser();
 
         try {
-            // Lecture du fichier JSON
             Object obj = parser.parse(new FileReader(filePath));
 
-            // Conversion de l'objet en JSONObject
             JSONObject jsonObject = (JSONObject) obj;
 
             Object value = jsonObject.get(key);
@@ -35,9 +32,5 @@ public class JSONReader {
     }
 
     public static void main(String[] args) {
-        String key = "adherent";
-        String value = getJsonValue(key);
-
-        System.out.println("Valeur pour la clé '" + key + "': " + value);
     }
 }

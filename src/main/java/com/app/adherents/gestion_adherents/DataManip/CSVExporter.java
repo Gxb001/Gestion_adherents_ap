@@ -10,29 +10,27 @@ import java.util.Arrays;
 import java.util.List;
 
 /*TODO probleme d'encodage*/
-/*TODO ajouter armes au formulaire*/
 public class CSVExporter {
     public static void exporterAdherentsCSV() throws IOException {
-        // Créez une boîte de dialogue pour choisir l'emplacement du fichier CSV
         File selectedFile = choisirEmplacementFichierCSV();
 
         if (selectedFile != null) {
-            // L'utilisateur a choisi un emplacement et un nom de fichier, vous pouvez maintenant écrire les données CSV
+
             try (PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(selectedFile), StandardCharsets.UTF_8))) {
-                // Écrire l'en-tête CSV avec les noms des colonnes
+
                 List<String> headers = getHeaders();
                 writer.println(String.join(";", headers));
 
                 List<Adherent> adherents = XMLListing.listerAdherents(JSONReader.getJsonValue("adherent"));
 
-                // Écrire les données des adhérents avec les colonnes correspondantes
+
                 for (Adherent adherent : adherents) {
                     List<String> values = getAdherentData(adherent);
                     writer.println(String.join(";", values));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                // Gérez l'exception ici (affichage d'un message d'erreur par exemple)
+
             }
         }
     }

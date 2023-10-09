@@ -16,17 +16,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class DefaultController {
     static ObservableList<Adherent> adherentObservableList = FXCollections.observableArrayList();
@@ -48,18 +47,20 @@ public class DefaultController {
     private TableColumn<Adherent, String> representantadherentprenom;
     @FXML
     private TextField keywordstextfield;
+    @FXML
+    private Button delbutton;
+    @FXML
+    private Button editbutton;
 
     public void initialize() {
         String XMLPath_adherent = JSONReader.getJsonValue("adherent");
         String XMLPath_club = JSONReader.getJsonValue("club");
         String XMLPath_categorie = JSONReader.getJsonValue("categorie");
         try {
-            // Chargez les adhérents à partir de votre fichier XML
             List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
             adherentObservableList.addAll(adherents);
         } catch (Exception e) {
             e.printStackTrace();
-            // Gérez l'exception ici (affichage d'un message d'erreur par exemple)
         }
         try {
             int Nb_balise = XMLFileManipulation.last_id(XMLPath_club, "club");
@@ -99,12 +100,10 @@ public class DefaultController {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                // Gérez l'exception ici (affichage d'un message d'erreur par exemple)
             }
             return new ReadOnlyStringWrapper(nomResponsable);
         });
 
-        // Associez la colonne "representantadherentprenom" à la propriété "prenomResponsable" de la classe Adherent
         representantadherentprenom.setCellValueFactory(cellData -> {
             Adherent adherent = cellData.getValue();
             String prenomResponsable = "";
@@ -119,7 +118,6 @@ public class DefaultController {
             return new ReadOnlyStringWrapper(prenomResponsable);
         });
 
-        // Associez la liste observable à la TableView
         adherenttable.setItems(adherentObservableList);
         FilteredList<Adherent> filteredData = new FilteredList<>(adherentObservableList, p -> true);
         keywordstextfield.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -152,7 +150,6 @@ public class DefaultController {
             adherentObservableList.addAll(adherents);
         } catch (Exception e) {
             e.printStackTrace();
-            // Gérez l'exception ici (affichage d'un message d'erreur par exemple)
         } finally {
             adherenttable.refresh();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -185,8 +182,54 @@ public class DefaultController {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
-        //stage.initStyle(StageStyle.UTILITY);
         stage.show();
     }
+
+    public void supprimmerAdherent() {
+        Adherent adherent = adherenttable.getSelectionModel().getSelectedItem();
+        if (adherent != null) {
+            Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmation.setTitle("Suppression");
+            confirmation.setHeaderText(null);
+            confirmation.setContentText("Voulez-vous vraiment supprimer l'adhérent " + adherent.getNom() + " " + adherent.getPrenom() + " ?");
+            Optional<ButtonType> result = confirmation.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                adherentObservableList.remove(adherent);
+                String XMLPath_adherent = JSONReader.getJsonValue("adherent");
+                try {
+                    XMLFileManipulation.deleteAdherent(XMLPath_adherent, String.valueOf(adherent.getId()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Alert erreur = new Alert(Alert.AlertType.ERROR);
+                erreur.setTitle("Erreur");
+                erreur.setHeaderText(null);
+                erreur.setContentText("Une erreur est survenue lors de la suppression de l'adhérent " + adherent.getNom() + " " + adherent.getPrenom() + " !");
+                erreur.showAndWait();
+            }
+        }
+    }
+
+    public void editAdherent() {
+        Adherent adherent = adherenttable.getSelectionModel().getSelectedItem();
+        if (adherent != null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/app/adherents/gestion_adherents/addAdherents.fxml"));
+                Parent parent = loader.load();
+                AddController addController = loader.getController();
+                addController.initDataAdherent(adherent);
+
+                Scene scene = new Scene(parent);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.show();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
 
 }
