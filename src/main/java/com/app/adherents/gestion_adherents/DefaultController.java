@@ -55,7 +55,6 @@ public class DefaultController {
     public void initialize() {
         String XMLPath_adherent = JSONReader.getJsonValue("adherent");
         String XMLPath_club = JSONReader.getJsonValue("club");
-        String XMLPath_categorie = JSONReader.getJsonValue("categorie");
         try {
             List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
             adherentObservableList.addAll(adherents);
@@ -151,7 +150,6 @@ public class DefaultController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            adherenttable.refresh();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Mise à jour réussie");
             alert.setHeaderText(null);
@@ -166,13 +164,20 @@ public class DefaultController {
     public void exporter() {
         //listing des adherents
         String XMLPath_adherent = JSONReader.getJsonValue("adherent");
-        try {
-            List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
-            CSVExporter.exporterAdherentsCSV();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (!adherentObservableList.isEmpty()) {
+            try {
+                List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
+                CSVExporter.exporterAdherentsCSV();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("La liste des adhérents est vide !");
+            alert.showAndWait();
         }
-
     }
 
 

@@ -10,6 +10,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,7 +19,7 @@ public class Adherent {
     private int id;
     private String nom;
     private String prenom;
-    private String dateNaissance;
+    private LocalDate dateNaissance;
     private String genre;
     private String nomDeNaissance;
     private String paysNaissance;
@@ -37,7 +38,7 @@ public class Adherent {
     private List<String> pratiqueEscrimeArmes;
     private ResponsableLegal responsableLegal;
 
-    public Adherent(int id, String nom, String prenom, String dateNaissance, String genre, String nomDeNaissance, String paysNaissance, String villeNaissance, String nationalite, String codePostal, String adresse, String ville, String numeroTelephone1, String numeroTelephone2, String adresseEmail, String pratique, String lateralite, String idClub, String categorie, List<String> pratiqueEscrimeArmes, ResponsableLegal responsableLegal) {
+    public Adherent(int id, String nom, String prenom, LocalDate dateNaissance, String genre, String nomDeNaissance, String paysNaissance, String villeNaissance, String nationalite, String codePostal, String adresse, String ville, String numeroTelephone1, String numeroTelephone2, String adresseEmail, String pratique, String lateralite, String idClub, String categorie, List<String> pratiqueEscrimeArmes, ResponsableLegal responsableLegal) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -85,11 +86,11 @@ public class Adherent {
         this.prenom = prenom;
     }
 
-    public String getDateNaissance() {
+    public LocalDate getDateNaissance() {
         return dateNaissance;
     }
 
-    public void setDateNaissance(String dateNaissance) {
+    public void setDateNaissance(LocalDate dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
 

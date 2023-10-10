@@ -64,7 +64,6 @@ public class AddController {
     private CheckBox armeepee;
     @FXML
     private CheckBox armesabre;
-
     public void initialize() {
         // Initialisation des ComboBox
         genreComboBox.getItems().addAll("Homme", "Femme");
@@ -146,6 +145,8 @@ public class AddController {
                     } finally {
                         Stage stage = (Stage) ValidateButton.getScene().getWindow();
                         stage.close();
+                        DefaultController defaultController = new DefaultController();
+                        defaultController.refreshAdherents();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -190,7 +191,7 @@ public class AddController {
     public void initDataAdherent(Adherent adherent) {
         nomTextField.setText(adherent.getNom());
         prenomTextField.setText(adherent.getPrenom());
-        dateNaissancePicker.getEditor().setText(adherent.getDateNaissance());
+        dateNaissancePicker.setValue(adherent.getDateNaissance());
         genreComboBox.setValue(adherent.getGenre());
         nomNaissanceTextField.setText(adherent.getNomDeNaissance());
         paysNaissanceTextField.setText(adherent.getPaysNaissance());

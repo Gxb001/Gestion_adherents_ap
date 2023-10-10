@@ -9,6 +9,8 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,10 +65,13 @@ public class XMLListing {
                 // Récupérez les détails du responsable légal
                 Element responsableLegalElement = (Element) element.getElementsByTagName("Responsable_Légal").item(0);
                 String responsableNom = getElementTextContent(responsableLegalElement, "Nom_responsable");
+
                 String responsablePrenom = getElementTextContent(responsableLegalElement, "Prenom_responsable");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                LocalDate dateNaissanceLocal = LocalDate.parse(dateNaissance, formatter);
 
                 // Créez un objet Adherent avec le constructeur
-                Adherent adherent = new Adherent(id, nom, prenom, dateNaissance, genre, nomDeNaissance, paysNaissance, villeNaissance, nationalite,
+                Adherent adherent = new Adherent(id, nom, prenom, dateNaissanceLocal, genre, nomDeNaissance, paysNaissance, villeNaissance, nationalite,
                         codePostal, adresse, ville, numeroTelephone1, numeroTelephone2, adresseEmail, pratique, lateralite, idClub, categorie,
                         pratiqueEscrimeArmes, new ResponsableLegal(responsableNom, responsablePrenom));
 

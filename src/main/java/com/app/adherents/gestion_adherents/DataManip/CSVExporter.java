@@ -10,6 +10,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /*TODO probleme d'encodage*/
+/*TODO gestion id_club & clubs*/
+/*TODO gestion taille des entrées text*/
+/*TODO verif type entrée ex email tel etc...*/
 public class CSVExporter {
     public static void exporterAdherentsCSV() throws IOException {
         File selectedFile = choisirEmplacementFichierCSV();
