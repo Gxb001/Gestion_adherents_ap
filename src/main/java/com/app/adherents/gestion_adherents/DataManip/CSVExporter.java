@@ -13,6 +13,8 @@ import java.util.List;
 /*TODO gestion id_club & clubs*/
 /*TODO gestion taille des entrées text*/
 /*TODO verif type entrée ex email tel etc...*/
+/*TODO verif age & catégorie*/
+/*TODO modif maj min nom prenom etc...*/
 public class CSVExporter {
     public static void exporterAdherentsCSV() throws IOException {
         File selectedFile = choisirEmplacementFichierCSV();

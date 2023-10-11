@@ -9,13 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Edit presque Ok | delete OK | modifier type date en local date">
+    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Type ok &amp; refresh OK | manque verif inputs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/Class/Adherent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/Class/Adherent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/CSVExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/CSVExporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLListing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -277,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696881405932</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Type ok &amp; refresh OK | manque verif inputs">
+      <option name="closed" value="true" />
+      <created>1696956005259</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1696956005259</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +360,8 @@
     <MESSAGE value="Files updated" />
     <MESSAGE value="Actualisation OK &amp; Save aussi" />
     <MESSAGE value="Edit presque Ok | delete OK | modifier type date en local date" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit presque Ok | delete OK | modifier type date en local date" />
+    <MESSAGE value="Type ok &amp; refresh OK | manque verif inputs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Type ok &amp; refresh OK | manque verif inputs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
