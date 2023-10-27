@@ -15,6 +15,8 @@ import java.util.List;
 /*TODO verif type entrée ex email tel etc...*/
 /*TODO verif age & catégorie*/
 /*TODO modif maj min nom prenom etc...*/
+/*TODO reset formulaire liste*/
+/*TODO RELIRE CONSIGNES*/
 public class CSVExporter {
     public static void exporterAdherentsCSV() throws IOException {
         File selectedFile = choisirEmplacementFichierCSV();
