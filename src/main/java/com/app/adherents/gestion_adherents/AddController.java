@@ -64,6 +64,7 @@ public class AddController {
     private CheckBox armeepee;
     @FXML
     private CheckBox armesabre;
+
     public void initialize() {
         // Initialisation des ComboBox
         genreComboBox.getItems().addAll("Homme", "Femme");

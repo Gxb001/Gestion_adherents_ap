@@ -20,30 +20,6 @@ public class ResponsableLegal {
         this.prenomResponsable = prenomResponsable;
     }
 
-    public String getNomResponsable() {
-        return nomResponsable;
-    }
-
-    public void setNomResponsable(String nomResponsable) {
-        this.nomResponsable = nomResponsable;
-    }
-
-    public String getPrenomResponsable() {
-        return prenomResponsable;
-    }
-
-    public void setPrenomResponsable(String prenomResponsable) {
-        this.prenomResponsable = prenomResponsable;
-    }
-
-    @Override
-    public String toString() {
-        return "ResponsableLegal{" +
-                "nomResponsable='" + nomResponsable + '\'' +
-                ", prenomResponsable='" + prenomResponsable + '\'' +
-                '}';
-    }
-
     public static String[] afficherNomPrenomResponsable(String xmlFilePath, String balisePrincipale, String id) {
         try {
             // Configuration du parseur DOM
@@ -92,6 +68,30 @@ public class ResponsableLegal {
             return new String[]{"Erreur : " + e.getMessage()};
         }
         return new String[]{xmlFilePath};
+    }
+
+    public String getNomResponsable() {
+        return nomResponsable;
+    }
+
+    public void setNomResponsable(String nomResponsable) {
+        this.nomResponsable = nomResponsable;
+    }
+
+    public String getPrenomResponsable() {
+        return prenomResponsable;
+    }
+
+    public void setPrenomResponsable(String prenomResponsable) {
+        this.prenomResponsable = prenomResponsable;
+    }
+
+    @Override
+    public String toString() {
+        return "ResponsableLegal{" +
+                "nomResponsable='" + nomResponsable + '\'' +
+                ", prenomResponsable='" + prenomResponsable + '\'' +
+                '}';
     }
 }
 

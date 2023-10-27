@@ -66,6 +66,7 @@ public class XMLFileManipulation {
         }
         return xmlFilePath;
     }
+
     /*
     verifie si une valeur est egal à la nouvelle
      */
@@ -269,7 +270,6 @@ public class XMLFileManipulation {
     }
 
 
-
     private static String getElementTextContent(Element element, String tagName) {
         NodeList nodeList = element.getElementsByTagName(tagName);
         if (nodeList.getLength() > 0) {
@@ -298,7 +298,7 @@ public class XMLFileManipulation {
                 String lastId = lastElement.getAttribute("id");
                 return Integer.parseInt(lastId);
             } else {
-                System.out.println("Aucun élément <"+ balisePrincipale.toLowerCase() +"> trouvé dans le fichier XML.");
+                System.out.println("Aucun élément <" + balisePrincipale.toLowerCase() + "> trouvé dans le fichier XML.");
             }
         } catch (Exception e) {
             System.err.println("Une erreur s'est produite : " + e.getMessage());
