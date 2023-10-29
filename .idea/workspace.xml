@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Gestions de problemes &amp; club add">
+    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="getaddview modif tel2 modif, update marche plus">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/app.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -328,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698598515978</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="getaddview modif tel2 modif, update marche plus">
+      <option name="closed" value="true" />
+      <created>1698603250749</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1698603250749</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,7 +418,8 @@
     <MESSAGE value="Add todo" />
     <MESSAGE value="Cleanup Code" />
     <MESSAGE value="Gestions de problemes &amp; club add" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gestions de problemes &amp; club add" />
+    <MESSAGE value="getaddview modif tel2 modif, update marche plus" />
+    <option name="LAST_COMMIT_MESSAGE" value="getaddview modif tel2 modif, update marche plus" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -420,11 +428,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java</url>
           <line>115</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java</url>
-          <line>177</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
