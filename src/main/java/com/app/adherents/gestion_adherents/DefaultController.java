@@ -48,9 +48,7 @@ public class DefaultController {
     @FXML
     private TextField keywordstextfield;
     @FXML
-    private Button delbutton;
-    @FXML
-    private Button editbutton;
+    private ComboBox<String> lstclubs;
 
     public void initialize() {
         String XMLPath_adherent = JSONReader.getJsonValue("adherent");
@@ -58,6 +56,9 @@ public class DefaultController {
         try {
             List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
             adherentObservableList.addAll(adherents);
+            //prendre l'id du club
+            //parcourir la liste des adhérents
+            //retirer chaque adhérents de la liste dont l'id du club est différent de l'id du club
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -80,6 +81,9 @@ public class DefaultController {
                 }
 
             }
+            for (Club club : clubs) {
+                lstclubs.getItems().add(club.getNom() + " : " + club.getId());
+            }//liste des clubs dans le combobox mtn faut trier la tableview
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -213,6 +217,16 @@ public class DefaultController {
                 erreur.setContentText("Une erreur est survenue lors de la suppression de l'adhérent " + adherent.getNom() + " " + adherent.getPrenom() + " !");
                 erreur.showAndWait();
             }
+        } else {
+            Alert errselect = new Alert(Alert.AlertType.ERROR);
+            errselect.setTitle("Adhérent non selectionné");
+            errselect.setHeaderText(null);
+            errselect.setContentText("Merci de selectionner un adhérent à supprimer !");
+            PauseTransition delai = new PauseTransition(javafx.util.Duration.seconds(2));
+            delai.setOnFinished(event -> errselect.close());
+            errselect.show();
+            delai.play();
+
         }
     }
 
@@ -233,6 +247,16 @@ public class DefaultController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        } else {
+            Alert errselect = new Alert(Alert.AlertType.ERROR);
+            errselect.setTitle("Adhérent non selectionné");
+            errselect.setHeaderText(null);
+            errselect.setContentText("Merci de selectionner un adhérent à modifier !");
+            PauseTransition delai = new PauseTransition(javafx.util.Duration.seconds(2));
+            delai.setOnFinished(event -> errselect.close());
+            errselect.show();
+            delai.play();
+
         }
     }
 

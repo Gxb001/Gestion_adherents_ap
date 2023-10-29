@@ -9,9 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Add todo">
+    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Cleanup Code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/CSVExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/CSVExporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/BaseApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/BaseApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/addAdherents.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/addAdherents.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/app.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/btn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/btn.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +46,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Gxb001"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Gxb001&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -302,7 +308,23 @@
       <option name="project" value="LOCAL" />
       <updated>1697045072154</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Add todo">
+      <option name="closed" value="true" />
+      <created>1698429566054</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1698429566054</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Cleanup Code">
+      <option name="closed" value="true" />
+      <created>1698429602163</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1698429602163</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,19 +405,20 @@
     <MESSAGE value="Edit presque Ok | delete OK | modifier type date en local date" />
     <MESSAGE value="Type ok &amp; refresh OK | manque verif inputs" />
     <MESSAGE value="Add todo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add todo" />
+    <MESSAGE value="Cleanup Code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleanup Code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java</url>
-          <line>114</line>
+          <line>115</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java</url>
-          <line>159</line>
+          <line>160</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

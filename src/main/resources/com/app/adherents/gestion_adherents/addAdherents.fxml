@@ -167,19 +167,19 @@
         <Button fx:id="closebtn" layoutX="557.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#close"
                 stylesheets="@btn.css" text="✖"/>
         <CheckBox fx:id="armesabre" layoutX="510.0" layoutY="624.0" mnemonicParsing="false" prefHeight="37.0"
-                  prefWidth="78.0" text="Sabre">
+                  prefWidth="78.0" stylesheets="@btn.css" text="Sabre">
             <font>
                 <Font size="13.0"/>
             </font>
         </CheckBox>
         <CheckBox fx:id="armeepee" layoutX="420.0" layoutY="624.0" mnemonicParsing="false" prefHeight="37.0"
-                  prefWidth="78.0" text="Epée">
+                  prefWidth="78.0" stylesheets="@btn.css" text="Epée">
             <font>
                 <Font size="13.0"/>
             </font>
         </CheckBox>
         <CheckBox fx:id="armefleurer" layoutX="333.0" layoutY="624.0" mnemonicParsing="false" prefHeight="37.0"
-                  prefWidth="78.0" text="Fleuret">
+                  prefWidth="78.0" stylesheets="@btn.css" text="Fleuret">
             <font>
                 <Font size="13.0"/>
             </font>

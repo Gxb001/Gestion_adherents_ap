@@ -111,7 +111,7 @@ public class XMLFileManipulation {
     }
 
 
-    // Function pour modifier la valeur d'une balise spécifiée
+    // Fonction pour modifier la valeur d'une balise spécifiée
     public static boolean modifierBalise(String xmlFilePath, String balisePrincipale, String id, String baliseAModifier, String nouvelleValeur) {
         try {
             // Appel de la fonction pour afficher la valeur actuelle
