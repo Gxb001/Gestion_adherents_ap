@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class AddController {
     @FXML
@@ -93,11 +94,23 @@ public class AddController {
         } else {
             String XMLPath_adherent = JSONReader.getJsonValue("adherent");
             if (!XMLFileManipulation.comparerBalisesXML(XMLPath_adherent, "adherent", "Adresse_email", emailTextField.getText())) {
-                //faire pop up d'erreur
-            } else if (!XMLFileManipulation.comparerBalisesXML(XMLPath_adherent, "adherent", "Numéro_de_telephone1", tel1TextField.getText())) {
-                //faire pop up d'erreur
-            } else if (!XMLFileManipulation.comparerBalisesXML(XMLPath_adherent, "adherent", "Numéro_de_telephone2", tel2TextField.getText())) {
-                //faire pop up d'erreur
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur Email");
+                alert.setHeaderText("");
+                alert.setContentText("Email deja utilisé !");
+                alert.showAndWait();
+            } else if (!XMLFileManipulation.comparerBalisesXML(XMLPath_adherent, "adherent", "Numéro_de_telephone1", tel1TextField.getText()) || !XMLFileManipulation.comparerBalisesXML(XMLPath_adherent, "adherent", "Numéro_de_telephone2", tel2TextField.getText())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur Téléphone");
+                alert.setHeaderText("");
+                alert.setContentText("Numéro de téléhpone deja utilisé !");
+                alert.showAndWait();
+            } else if (!XMLFileManipulation.comparerBalisesXML(XMLPath_adherent, "adherent", "Numéro_de_telephone2", tel2TextField.getText()) || !XMLFileManipulation.comparerBalisesXML(XMLPath_adherent, "adherent", "Numéro_de_telephone1", tel1TextField.getText())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur Téléphone");
+                alert.setHeaderText("");
+                alert.setContentText("Numéro de téléhpone deja utilisé !");
+                alert.showAndWait();
             } else {
                 try {
                     //recuperation des champs
@@ -114,6 +127,9 @@ public class AddController {
                     String ville = villeTextField.getText();
                     String tel1 = tel1TextField.getText();
                     String tel2 = tel2TextField.getText();
+                    if (tel2.isEmpty()) {
+                        tel2 = "null";
+                    }
                     String email = emailTextField.getText();
                     String pratique = pratiqueComboBox.getValue();
                     String lateralite = lateraliteComboBox.getValue();
@@ -133,6 +149,7 @@ public class AddController {
                     if (armesabre.isSelected()) {
                         armesSelectionnees.add("Sabre");
                     }
+                    //changer l'id du club en fonction du club selectionné
                     try {
                         AdherentXML.ajouterAdherent(JSONReader.getJsonValue("adherent"), nom, prenom, dateNaissance, genre, nomNaissance, paysNaissance, villeNaissance, nationalite, codePostal, adresse, ville, tel1, tel2, email, pratique, lateralite, 1, categorie, armesSelectionnees, nomResponsable, prenomResponsable);
                         //affichage d'un message de confirmation
@@ -202,7 +219,12 @@ public class AddController {
         codePostalTextField.setText(adherent.getCodePostal());
         villeTextField.setText(adherent.getVille());
         tel1TextField.setText(adherent.getNumeroTelephone1());
-        tel2TextField.setText(adherent.getNumeroTelephone2());
+        if (!Objects.equals(adherent.getNumeroTelephone2(), "null")){
+            tel2TextField.setText(adherent.getNumeroTelephone2());
+        }
+        else {
+            tel2TextField.setText("");
+        }
         emailTextField.setText(adherent.getAdresseEmail());
         pratiqueComboBox.setValue(adherent.getPratique());
         lateraliteComboBox.setValue(adherent.getLateralite());

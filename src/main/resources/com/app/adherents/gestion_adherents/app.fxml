@@ -1,55 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.*?>
-<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1"
-      fx:controller="com.app.adherents.gestion_adherents.DefaultController">
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.adherents.gestion_adherents.DefaultController">
     <children>
-        <TableView fx:id="adherenttable" layoutX="25.0" layoutY="139.0" prefHeight="430.0" prefWidth="850.0"
-                   stylesheets="@btn.css">
+        <TableView fx:id="adherenttable" layoutX="25.0" layoutY="139.0" prefHeight="430.0" prefWidth="850.0" stylesheets="@btn.css">
             <columns>
-                <TableColumn fx:id="nomadherent" prefWidth="75.0" text="Nom"/>
-                <TableColumn fx:id="prenomadherent" prefWidth="75.0" text="Prenom"/>
-                <TableColumn fx:id="genreadherent" prefWidth="75.0" text="Genre"/>
-                <TableColumn fx:id="emailadherent" prefWidth="193.0" text="Email"/>
-                <TableColumn fx:id="categadherent" minWidth="0.0" prefWidth="95.0" text="Catégorie"/>
-                <TableColumn fx:id="representantadherentnom" prefWidth="134.0" text="Nom representant"/>
-                <TableColumn fx:id="representantadherentprenom" prefWidth="163.0" text="Prenom représentant"/>
+                <TableColumn fx:id="nomadherent" prefWidth="75.0" text="Nom" />
+                <TableColumn fx:id="prenomadherent" prefWidth="75.0" text="Prenom" />
+                <TableColumn fx:id="genreadherent" prefWidth="75.0" text="Genre" />
+                <TableColumn fx:id="emailadherent" prefWidth="193.0" text="Email" />
+                <TableColumn fx:id="categadherent" minWidth="0.0" prefWidth="95.0" text="Catégorie" />
+                <TableColumn fx:id="representantadherentnom" prefWidth="134.0" text="Nom representant" />
+                <TableColumn fx:id="representantadherentprenom" prefWidth="163.0" text="Prenom représentant" />
             </columns>
         </TableView>
-        <Label layoutX="25.0" layoutY="95.0" text="Rechercher adhérents "/>
-        <TextField fx:id="keywordstextfield" layoutX="157.0" layoutY="90.0" prefHeight="26.0" prefWidth="235.0"
-                   promptText="Nom adhérent"/>
-        <Text layoutX="296.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion des adhérents"
-              textAlignment="JUSTIFY" wrappingWidth="332.04541015625">
+        <Label layoutX="25.0" layoutY="95.0" text="Rechercher adhérents " />
+        <TextField fx:id="keywordstextfield" layoutX="157.0" layoutY="90.0" prefHeight="26.0" prefWidth="235.0" promptText="Nom adhérent" />
+        <Text layoutX="296.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion des adhérents" textAlignment="JUSTIFY" wrappingWidth="332.04541015625">
             <font>
-                <Font name="Trebuchet MS" size="33.0"/>
+                <Font name="Trebuchet MS" size="33.0" />
             </font>
         </Text>
-        <Button fx:id="btnadd" layoutX="409.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#getAddView"
-                prefHeight="40.0" prefWidth="107.0" stylesheets="@btn.css" text="Ajouter">
+        <Button fx:id="btnadd" layoutX="409.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#getAddView" prefHeight="40.0" prefWidth="107.0" stylesheets="@btn.css" text="Ajouter">
             <font>
-                <Font name="Yu Gothic Light" size="12.0"/>
+                <Font name="Yu Gothic Light" size="12.0" />
             </font>
         </Button>
-        <Button fx:id="btnexp" layoutX="521.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#refreshAdherents"
-                prefHeight="40.0" prefWidth="107.0" stylesheets="@btn.css" text="Actualiser">
+        <Button fx:id="btnexp" layoutX="521.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#refreshAdherents" prefHeight="40.0" prefWidth="107.0" stylesheets="@btn.css" text="Actualiser">
             <font>
-                <Font name="Yu Gothic Light" size="12.0"/>
+                <Font name="Yu Gothic Light" size="12.0" />
             </font>
         </Button>
-        <Button fx:id="btnexpt" layoutX="779.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#exporter"
-                prefHeight="40.0" prefWidth="107.0" stylesheets="@btn.css" text="Exporter">
+        <Button fx:id="btnexpt" layoutX="779.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#exporter" prefHeight="40.0" prefWidth="107.0" stylesheets="@btn.css" text="Exporter">
             <font>
-                <Font name="Yu Gothic Light" size="12.0"/>
+                <Font name="Yu Gothic Light" size="12.0" />
             </font>
         </Button>
-        <Button fx:id="delbutton" layoutX="757.0" layoutY="90.0" mnemonicParsing="false"
-                onMouseClicked="#supprimmerAdherent" stylesheets="@btn.css" text="Supprimer"/>
-        <Button fx:id="editbutton" layoutX="642.0" layoutY="90.0" mnemonicParsing="false" onMouseClicked="#editAdherent"
-                prefHeight="42.0" prefWidth="107.0" stylesheets="@btn.css" text="Modifier"/>
-        <ComboBox fx:id="lstclubs" layoutX="25.0" layoutY="21.0" prefWidth="150.0" promptText="Selectionner un club"/>
+        <Button fx:id="delbutton" layoutX="757.0" layoutY="90.0" mnemonicParsing="false" onMouseClicked="#supprimmerAdherent" stylesheets="@btn.css" text="Supprimer" />
+        <Button fx:id="editbutton" layoutX="642.0" layoutY="90.0" mnemonicParsing="false" onMouseClicked="#editAdherent" prefHeight="42.0" prefWidth="107.0" stylesheets="@btn.css" text="Modifier" />
+        <ComboBox fx:id="lstclubs" layoutX="25.0" layoutY="21.0" prefWidth="150.0" promptText="Selectionner un club" />
     </children>
 </Pane>

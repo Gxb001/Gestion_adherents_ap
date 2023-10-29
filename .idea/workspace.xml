@@ -9,15 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Cleanup Code">
+    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Gestions de problemes &amp; club add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/BaseApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/BaseApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/addAdherents.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/addAdherents.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/app.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/btn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/btn.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,7 +320,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698429602163</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Gestions de problemes &amp; club add">
+      <option name="closed" value="true" />
+      <created>1698598515978</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1698598515978</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +410,8 @@
     <MESSAGE value="Type ok &amp; refresh OK | manque verif inputs" />
     <MESSAGE value="Add todo" />
     <MESSAGE value="Cleanup Code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup Code" />
+    <MESSAGE value="Gestions de problemes &amp; club add" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gestions de problemes &amp; club add" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -418,7 +423,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java</url>
-          <line>160</line>
+          <line>177</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
