@@ -345,6 +345,8 @@ public class XMLFileManipulation {
         try {   // Chemin vers votre fichier XML
             String xmlFilePath = JSONReader.getJsonValue("adherent");
 
+            //modifierBalise(xmlFilePath, "adhérent", "1", "Nom", "test");
+
             //List<String> nouvellesValeurArmes = Arrays.asList( "Fleuret", "Epée");
             //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Pratique_Escrime", nouvellesValeurArmes);
             //System.out.println(afficherArmesPratiquées(xmlFilePath, "adhérent", "1"));

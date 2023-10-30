@@ -22,9 +22,9 @@ public class BaseApp extends Application {
         Image icon = new Image("file:D:\\Users\\Gabriel\\Desktop\\Gestion_adherents_ap\\src\\main\\java\\com\\app\\adherents\\gestion_adherents\\medias\\escrime.ico");
         stage.getIcons().add(icon);
         stage.setMaxWidth(900);
-        stage.setMaxHeight(630);
+        stage.setMaxHeight(650);
         stage.setMinWidth(900);
-        stage.setMinHeight(630);
+        stage.setMinHeight(650);
         stage.show();
     }
 }

@@ -49,6 +49,7 @@ public class DefaultController {
     private TextField keywordstextfield;
     @FXML
     private ComboBox<String> lstclubs;
+    private static int id_adherent;
 
     public void initialize() {
         String XMLPath_adherent = JSONReader.getJsonValue("adherent");
@@ -230,9 +231,14 @@ public class DefaultController {
         }
     }
 
+    public static String getIdAdherent() {
+        return String.valueOf(id_adherent);
+    }
+
     public void editAdherent() {
         Adherent adherent = adherenttable.getSelectionModel().getSelectedItem();
         if (adherent != null) {
+            id_adherent = adherent.getId();
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/app/adherents/gestion_adherents/editAdherents.fxml"));
                 Parent parent = loader.load();
@@ -259,6 +265,4 @@ public class DefaultController {
 
         }
     }
-
-
 }
