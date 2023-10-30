@@ -203,6 +203,94 @@ public class AddController {
         stage.close();
     }
 
+    public void update(){
+        if (nomTextField.getText().isEmpty() || prenomTextField.getText().isEmpty() || dateNaissancePicker.getValue() == null || genreComboBox.getValue() == null || nomNaissanceTextField.getText().isEmpty() || paysNaissanceTextField.getText().isEmpty() || villeNaissanceTextField.getText().isEmpty() || nationaliteTextField.getText().isEmpty() || adresseTextField.getText().isEmpty() || codePostalTextField.getText().isEmpty() || villeTextField.getText().isEmpty() || tel1TextField.getText().isEmpty() || emailTextField.getText().isEmpty() || pratiqueComboBox.getValue() == null || lateraliteComboBox.getValue() == null || categorieComboBox.getValue() == null || prenomResponsableTextField.getText().isEmpty() || nomResponsableTextField.getText().isEmpty() || (!armefleurer.isSelected() && !armeepee.isSelected() && !armesabre.isSelected())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText("Erreur de saisie");
+            alert.setContentText("Veuillez remplir tous les champs");
+            alert.showAndWait();
+        } else {
+            String XMLPath_adherent = JSONReader.getJsonValue("adherent");
+            if (!XMLFileManipulation.comparerBalisesXML(XMLPath_adherent, "adherent", "Adresse_email", emailTextField.getText())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur Email");
+                alert.setHeaderText("");
+                alert.setContentText("Email deja utilisé !");
+                alert.showAndWait();
+            } else if (!XMLFileManipulation.comparerBalisesXML(XMLPath_adherent, "adherent", "Numéro_de_telephone1", tel1TextField.getText()) || !XMLFileManipulation.comparerBalisesXML(XMLPath_adherent, "adherent", "Numéro_de_telephone2", tel2TextField.getText())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur Téléphone");
+                alert.setHeaderText("");
+                alert.setContentText("Numéro de téléhpone deja utilisé !");
+                alert.showAndWait();
+            } else if (!XMLFileManipulation.comparerBalisesXML(XMLPath_adherent, "adherent", "Numéro_de_telephone2", tel2TextField.getText()) || !XMLFileManipulation.comparerBalisesXML(XMLPath_adherent, "adherent", "Numéro_de_telephone1", tel1TextField.getText())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur Téléphone");
+                alert.setHeaderText("");
+                alert.setContentText("Numéro de téléhpone deja utilisé !");
+                alert.showAndWait();
+            } else {
+                try {
+                    //recuperation des champs
+                    String nom = nomTextField.getText();
+                    String prenom = prenomTextField.getText();
+                    String dateNaissance = dateNaissancePicker.getValue().toString();
+                    String genre = genreComboBox.getValue();
+                    String nomNaissance = nomNaissanceTextField.getText();
+                    String paysNaissance = paysNaissanceTextField.getText();
+                    String villeNaissance = villeNaissanceTextField.getText();
+                    String nationalite = nationaliteTextField.getText();
+                    String adresse = adresseTextField.getText();
+                    String codePostal = codePostalTextField.getText();
+                    String ville = villeTextField.getText();
+                    String tel1 = tel1TextField.getText();
+                    String tel2 = tel2TextField.getText();
+                    if (tel2.isEmpty()) {
+                        tel2 = "null";/*gerer ça*/
+                    }
+                    String email = emailTextField.getText();
+                    String pratique = pratiqueComboBox.getValue();
+                    String lateralite = lateraliteComboBox.getValue();
+                    String categorie = categorieComboBox.getValue();
+                    String prenomResponsable = prenomResponsableTextField.getText();
+                    String nomResponsable = nomResponsableTextField.getText();
+                    //recuperation des armes
+                    List<String> armesSelectionnees = new ArrayList<>();
+
+                    if (armefleurer.isSelected()) {
+                        armesSelectionnees.add("Fleuret");
+                    }
+                    if (armeepee.isSelected()) {
+                        armesSelectionnees.add("Epée");
+                    }
+                    if (armesabre.isSelected()) {
+                        armesSelectionnees.add("Sabre");
+                    }
+                    //changer l'id du club en fonction du club selectionné
+                    try {
+                        AdherentXML.ajouterAdherent(JSONReader.getJsonValue("adherent"), nom, prenom, dateNaissance, genre, nomNaissance, paysNaissance, villeNaissance, nationalite, codePostal, adresse, ville, tel1, tel2, email, pratique, lateralite, 1, categorie, armesSelectionnees, nomResponsable, prenomResponsable);
+                        //affichage d'un message de confirmation
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Confirmation");
+                        alert.setHeaderText("Adhérent ajouté");
+                        alert.setContentText("L'adhérent a bien été ajouté");
+                        alert.showAndWait();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
+                        Stage stage = (Stage) ValidateButton.getScene().getWindow();
+                        stage.close();
+                        DefaultController defaultController = new DefaultController();
+                        defaultController.refreshAdherents();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     public void initDataAdherent(Adherent adherent) {
         if (!Objects.equals(adherent.getNumeroTelephone2(), "null")) {
             tel2TextField.setText(adherent.getNumeroTelephone2());

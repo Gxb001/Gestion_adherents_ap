@@ -234,7 +234,7 @@ public class DefaultController {
         Adherent adherent = adherenttable.getSelectionModel().getSelectedItem();
         if (adherent != null) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/app/adherents/gestion_adherents/addAdherents.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/app/adherents/gestion_adherents/editAdherents.fxml"));
                 Parent parent = loader.load();
                 AddController addController = loader.getController();
                 addController.initDataAdherent(adherent);
