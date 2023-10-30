@@ -104,33 +104,5 @@ public class AdherentXML {
     }
 
     public static void main(String[] args) {
-        /*String xmlFilePath = JSONReader.getJsonValue("adherent");
-        for (int i = 1; i <= 10; i++) {
-            ajouterAdherent(
-                    xmlFilePath,
-                    "Nom" + i,
-                    "Prenom" + i,
-                    "200" + (i < 10 ? "0" : "") + i + "-01-01",
-                    (i % 2 == 0) ? "Homme" : "Femme",
-                    "Nom" + i,
-                    "Pays" + i,
-                    "Ville" + i,
-                    "Nationalite" + i,
-                    "7500" + i,
-                    "Adresse" + i,
-                    "Ville" + i,
-                    "0123456789",
-                    "9876543210",
-                    "adherent" + i + "@example.com",
-                    (i % 2 == 0) ? "Loisir" : "Compétition",
-                    (i % 2 == 0) ? "Droite" : "Gauche",
-                    i % 2 + 1,
-                    "Catégorie" + i,
-                    List.of("Épée", "Fleuret", "Sabre"),
-                    "NomResponsable" + i,
-                    "PrenomResponsable" + i
-            );
-        }*/
-        //System.out.println(XMLFileManipulation.afficherXML(xmlFilePath, "adhérent", "5", "Nom"));
     }
 }

@@ -17,6 +17,7 @@ import java.util.List;
 /*TODO modif maj min nom prenom etc...*/
 /*TODO reset formulaire liste*/
 /*TODO RELIRE CONSIGNES*/
+/*TODO creer editAdherents.fxml et faire la fonction edit dans le AddController*/
 public class CSVExporter {
     public static void exporterAdherentsCSV() throws IOException {
         File selectedFile = choisirEmplacementFichierCSV();

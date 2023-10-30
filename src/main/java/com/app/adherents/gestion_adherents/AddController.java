@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class AddController {
     @FXML
@@ -56,8 +57,6 @@ public class AddController {
     private TextField prenomResponsableTextField;
     @FXML
     private TextField nomResponsableTextField;
-    @FXML
-    private Button closebtn;
     @FXML
     private CheckBox armefleurer;
     @FXML
@@ -133,7 +132,6 @@ public class AddController {
                     String pratique = pratiqueComboBox.getValue();
                     String lateralite = lateraliteComboBox.getValue();
                     String categorie = categorieComboBox.getValue();
-                    categorie = categorie.substring(0, categorie.indexOf(" "));
                     String prenomResponsable = prenomResponsableTextField.getText();
                     String nomResponsable = nomResponsableTextField.getText();
                     //recuperation des armes
@@ -206,12 +204,12 @@ public class AddController {
     }
 
     public void initDataAdherent(Adherent adherent) {
-/*        if (!Objects.equals(adherent.getNumeroTelephone2(), null)){
+        if (!Objects.equals(adherent.getNumeroTelephone2(), "null")) {
             tel2TextField.setText(adherent.getNumeroTelephone2());
         }
         else {
             tel2TextField.setText("");
-        }*/
+        }
         nomTextField.setText(adherent.getNom());
         prenomTextField.setText(adherent.getPrenom());
         dateNaissancePicker.setValue(adherent.getDateNaissance());
@@ -224,7 +222,6 @@ public class AddController {
         codePostalTextField.setText(adherent.getCodePostal());
         villeTextField.setText(adherent.getVille());
         tel1TextField.setText(adherent.getNumeroTelephone1());
-        tel2TextField.setText(adherent.getNumeroTelephone2());
         emailTextField.setText(adherent.getAdresseEmail());
         pratiqueComboBox.setValue(adherent.getPratique());
         lateraliteComboBox.setValue(adherent.getLateralite());
