@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /*TODO probleme d'encodage*/
-/*TODO gestion id_club & clubs*/
+/*TODO gestion id_club & clubs ne pas oublier dans save et update*/
 /*TODO gestion taille des entrées text*/
 /*TODO verif type entrée ex email tel etc...*/
 /*TODO verif age & catégorie*/

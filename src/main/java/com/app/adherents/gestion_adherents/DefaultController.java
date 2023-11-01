@@ -25,6 +25,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class DefaultController {
@@ -55,15 +56,6 @@ public class DefaultController {
         String XMLPath_adherent = JSONReader.getJsonValue("adherent");
         String XMLPath_club = JSONReader.getJsonValue("club");
         try {
-            List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
-            adherentObservableList.addAll(adherents);
-            //prendre l'id du club
-            //parcourir la liste des adhérents
-            //retirer chaque adhérents de la liste dont l'id du club est différent de l'id du club
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
             int Nb_balise = XMLFileManipulation.last_id(XMLPath_club, "club");
             List<Club> clubs = new ArrayList<>();
             for (int i = 1; i < Nb_balise; i++) {
@@ -80,15 +72,38 @@ public class DefaultController {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
             for (Club club : clubs) {
                 lstclubs.getItems().add(club.getNom() + " : " + club.getId());
-            }//liste des clubs dans le combobox mtn faut trier la tableview
+            }
+            lstclubs.getItems().add("Tous les clubs");
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        finally {
+            try {
+                List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
+                lstclubs.setOnAction(event -> {
+                    adherentObservableList.clear();
+                    String selectedClub = lstclubs.getValue();
+                    if (selectedClub != null) {
+                        if (selectedClub.equals("Tous les clubs")) {
+                            adherentObservableList.addAll(adherents);
+                        }
+                        else {
+                            String clubId = selectedClub.split(" : ")[1];
+                            for (Adherent adherent : adherents) {
+                                if (Objects.equals(adherent.getIdClub(), clubId)) {
+                                    adherentObservableList.add(adherent);
+                                }
+                            }
+                        }
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         nomadherent.setCellValueFactory(new PropertyValueFactory<>("nom"));
         prenomadherent.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         genreadherent.setCellValueFactory(new PropertyValueFactory<>("genre"));
@@ -117,7 +132,6 @@ public class DefaultController {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                // Gérez l'exception ici (affichage d'un message d'erreur par exemple)
             }
             return new ReadOnlyStringWrapper(prenomResponsable);
         });
@@ -130,14 +144,14 @@ public class DefaultController {
                     return true;
                 }
                 String lowerCaseFilter = newValue.toLowerCase();
-                if (adherent.getNom().toLowerCase().indexOf(lowerCaseFilter) > -1) {
+                if (adherent.getNom().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (adherent.getPrenom().toLowerCase().indexOf(lowerCaseFilter) > -1) {
+                } else if (adherent.getPrenom().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (adherent.getResponsableLegal().getNomResponsable().toLowerCase().indexOf(lowerCaseFilter) > -1) {
+                } else if (adherent.getResponsableLegal().getNomResponsable().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 } else
-                    return adherent.getResponsableLegal().getPrenomResponsable().toLowerCase().indexOf(lowerCaseFilter) > -1;
+                    return adherent.getResponsableLegal().getPrenomResponsable().toLowerCase().contains(lowerCaseFilter);
             });
         });
         SortedList<Adherent> sortedData = new SortedList<>(filteredData);
