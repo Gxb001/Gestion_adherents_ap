@@ -1,1 +1,62 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><adhérents><adhérent id="1">    <Nom>test</Nom><Prenom>Bamody</Prenom><DateNaissance>2004-10-15</DateNaissance><Genre>Homme</Genre><Nom_de_naissance>DOUMBIA</Nom_de_naissance><Pays_naissance>Senegal</Pays_naissance><Ville_naissance>Dakar</Ville_naissance><Nationalite>Malienne</Nationalite><Code_postal>31000</Code_postal><Adresse>Borderouge</Adresse><Ville>Toulouse</Ville><Numéro_de_telephone1>060606006</Numéro_de_telephone1><Numéro_de_telephone2>0606060</Numéro_de_telephone2><Adresse_email>d.bamody@gmail.com</Adresse_email><Pratique>Compétition</Pratique><Latéralité>Droite</Latéralité><id_du_club>1</id_du_club><Catégorie>Juniors</Catégorie><Pratique_Escrime><Arme>Epée</Arme><Arme>Sabre</Arme></Pratique_Escrime><Responsable_Légal><Nom_responsable>FERRER</Nom_responsable><Prenom_responsable>GABRIEL</Prenom_responsable></Responsable_Légal></adhérent><adhérent id="2"><Nom>Ferrer</Nom><Prenom>Gabriel</Prenom><DateNaissance>2003-11-13</DateNaissance><Genre>Homme</Genre><Nom_de_naissance>Ferrer</Nom_de_naissance><Pays_naissance>France</Pays_naissance><Ville_naissance>Versailles</Ville_naissance><Nationalite>Française</Nationalite><Code_postal>31150</Code_postal><Adresse>10 rue des Ormeaux</Adresse><Ville>Fenouillet</Ville><Numéro_de_telephone1>06307072191</Numéro_de_telephone1><Numéro_de_telephone2>0606060606</Numéro_de_telephone2><Adresse_email>gabriel.ferrer_@outlook.com</Adresse_email><Pratique>Compétition</Pratique><Latéralité>Droite</Latéralité><id_du_club>1</id_du_club><Catégorie>Juniors</Catégorie><Pratique_Escrime><Arme>Fleuret</Arme><Arme>Epée</Arme><Arme>Sabre</Arme></Pratique_Escrime><Responsable_Légal><Nom_responsable>Doumbia</Nom_responsable><Prenom_responsable>Bamody</Prenom_responsable></Responsable_Légal></adhérent></adhérents>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<adhérents>
+<adhérent id="1">
+    <Nom>test</Nom>
+<Prenom>Bamody</Prenom>
+<DateNaissance>2004-10-15</DateNaissance>
+<Genre>Homme</Genre>
+<Nom_de_naissance>DOUMBIA</Nom_de_naissance>
+<Pays_naissance>Senegal</Pays_naissance>
+<Ville_naissance>Dakar</Ville_naissance>
+<Nationalite>Malienne</Nationalite>
+<Code_postal>31000</Code_postal>
+<Adresse>Borderouge</Adresse>
+<Ville>Toulouse</Ville>
+<Numéro_de_telephone1>060606006</Numéro_de_telephone1>
+<Numéro_de_telephone2>0606060</Numéro_de_telephone2>
+<Adresse_email>d.bamody@gmail.com</Adresse_email>
+<Pratique>Compétition</Pratique>
+<Latéralité>Droite</Latéralité>
+<id_du_club>1</id_du_club>
+<Catégorie>Juniors</Catégorie>
+<Pratique_Escrime>
+<Arme>Epée</Arme>
+<Arme>Sabre</Arme>
+</Pratique_Escrime>
+<Responsable_Légal>
+<Nom_responsable>FERRER</Nom_responsable>
+<Prenom_responsable>GABRIEL</Prenom_responsable>
+</Responsable_Légal>
+</adhérent>
+<adhérent id="2">
+<Nom>Ferrer</Nom>
+<Prenom>Gabriel</Prenom>
+<DateNaissance>2003-11-13</DateNaissance>
+<Genre>Homme</Genre>
+<Nom_de_naissance>Ferrer</Nom_de_naissance>
+<Pays_naissance>France</Pays_naissance>
+<Ville_naissance>Versailles</Ville_naissance>
+<Nationalite>Française</Nationalite>
+<Code_postal>31150</Code_postal>
+<Adresse>10 rue des Ormeaux</Adresse>
+<Ville>Fenouillet</Ville>
+<Numéro_de_telephone1>06307072191</Numéro_de_telephone1>
+<Numéro_de_telephone2>0606060606</Numéro_de_telephone2>
+<Adresse_email>gabriel.ferrer_@outlook.com</Adresse_email>
+<Pratique>Compétition</Pratique>
+<Latéralité>Droite</Latéralité>
+<id_du_club>1</id_du_club>
+<Catégorie>Juniors</Catégorie>
+<Pratique_Escrime>
+
+
+    <Arme>Fleuret</Arme>
+    <Arme>Epée</Arme>
+    <Arme>Sabre</Arme>
+</Pratique_Escrime>
+<Responsable_Légal>
+<Nom_responsable>Doumbia</Nom_responsable>
+<Prenom_responsable>Bamody</Prenom_responsable>
+</Responsable_Légal>
+</adhérent>
+</adhérents>

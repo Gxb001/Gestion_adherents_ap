@@ -342,50 +342,5 @@ public class XMLFileManipulation {
     }
 
     public static void main(String[] args) {
-        try {   // Chemin vers votre fichier XML
-            String xmlFilePath = JSONReader.getJsonValue("adherent");
-
-            //modifierBalise(xmlFilePath, "adhérent", "1", "Nom", "test");
-
-            //List<String> nouvellesValeurArmes = Arrays.asList( "Fleuret", "Epée");
-            //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Pratique_Escrime", nouvellesValeurArmes);
-            //System.out.println(afficherArmesPratiquées(xmlFilePath, "adhérent", "1"));
-            //System.out.println(afficherXML(xmlFilePath, "categorie", "1", "nom"));
-            //System.out.println(afficherXML(xmlFilePath, "adhérent", "9", "Nom"));
-            //deleteAdherent(xmlFilePath, "9");
-            //System.out.println(afficherXML(xmlFilePath, "adhérent", "9", "Nom"));
-
-            //List<String> nouvellesValeursResponsableLegal = Arrays.asList("test", "Michelle");
-            //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Responsable_Légal", nouvellesValeursResponsableLegal);
-            //System.out.println(afficherXML(xmlFilePath, "adhérent", "1", "Nom"));
-            //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Nom", "paul");
-
-            //System.out.println(afficherNomPrenomResponsable(xmlFilePath, "adhérent", "1")[0]);
-            //System.out.println(afficherNomPrenomResponsable(xmlFilePath, "adhérent", "1")[1]);
-            //System.out.println(afficherArmesPratiquées(xmlFilePath, "adhérent", "1"));
-            //System.out.println(afficherXML(xmlFilePath, "adhérent", "1", "Nom"));
-
-
-            //List<String> nouvellesValeursArmes = Arrays.asList("Fleuret");
-            //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Pratique_Escrime", nouvellesValeursArmes);
-
-            //modifierValeurBalise(xmlFilePath, "adhérent", "1", "Nom", "test");
-            //List result = afficherArmesPratiquées(xmlFilePath, "adhérent", "1");
-            //System.out.println(result);
-            //String rnom = afficherNomPrenomResponsable(xmlFilePath, "adhérent", "1")[0];
-            //String rprenom = afficherNomPrenomResponsable(xmlFilePath, "adhérent", "1")[1];
-            //System.out.println("Le responsable légal se nome : " + rnom + " " + rprenom);
-            // Appel de la fonction pour afficher l'adresse du club avec l'ID "1"
-            //String result = afficherXML(xmlFilePath, "adhérent", "2", "Responsable_Légal");
-            //System.out.println(result);
-            //System.out.println(last_id(xmlFilePath, "categorie"));
-            //System.out.println(comparerBalisesXML(xmlFilePath, "club", "nom", "test"));
-            //if (!result.startsWith("Erreur")) {
-            //System.out.println("Nom: "+result);
-            //System.out.println(modifierValeurBalise(xmlFilePath, "club", "2", "nom", "jl"));
-            //}
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

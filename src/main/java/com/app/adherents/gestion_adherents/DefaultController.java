@@ -167,11 +167,8 @@ public class DefaultController {
     }
 
     public void exporter() {
-        //listing des adherents
-        String XMLPath_adherent = JSONReader.getJsonValue("adherent");
         if (!adherentObservableList.isEmpty()) {
             try {
-                List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
                 CSVExporter.exporterAdherentsCSV();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -184,7 +181,6 @@ public class DefaultController {
             alert.showAndWait();
         }
     }
-
 
     public void getAddView(MouseEvent mouseEvent) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/com/app/adherents/gestion_adherents/addAdherents.fxml"));
