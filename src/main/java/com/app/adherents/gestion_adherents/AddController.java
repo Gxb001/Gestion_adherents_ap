@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
 public class AddController {
     @FXML
     private TextField nomTextField;
@@ -148,7 +149,7 @@ public class AddController {
                     }
                     //changer l'id du club en fonction du club selectionné
                     try {
-                        AdherentXML.ajouterAdherent(JSONReader.getJsonValue("adherent"), nom, prenom, dateNaissance, genre, nomNaissance, paysNaissance, villeNaissance, nationalite, codePostal, adresse, ville, tel1, tel2, email, pratique, lateralite, 1, categorie, armesSelectionnees, nomResponsable, prenomResponsable);
+                        AdherentXML.ajouterAdherent(JSONReader.getJsonValue("adherent"), nom, prenom, dateNaissance, genre, nomNaissance, paysNaissance, villeNaissance, nationalite, codePostal, adresse, ville, tel1, tel2, email, pratique, lateralite, DefaultController.getIdClubAdherent(), categorie, armesSelectionnees, nomResponsable, prenomResponsable);
                         //affichage d'un message de confirmation
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Confirmation");
@@ -160,9 +161,9 @@ public class AddController {
                     } finally {
                         Stage stage = (Stage) ValidateButton.getScene().getWindow();
                         stage.close();
-                        DefaultController defaultController = new DefaultController();
-                        defaultController.refreshAdherents();
+                        DefaultController.miseajour();
                     }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

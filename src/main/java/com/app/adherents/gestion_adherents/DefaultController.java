@@ -51,6 +51,36 @@ public class DefaultController {
     @FXML
     private ComboBox<String> lstclubs;
     private static int id_adherent;
+    private static String IdClubAdherent;
+    private static String selectedClub;
+
+    public static int getIdClubAdherent() {
+        return Integer.parseInt(IdClubAdherent);
+    }
+
+    public static void miseajour() {
+        adherentObservableList.clear();
+        String XMLPath_adherent = JSONReader.getJsonValue("adherent");
+        try {
+            // Chargez les adhérents à partir de votre fichier XML
+            List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
+            if (selectedClub != null) {
+                if (selectedClub.equals("Tous les clubs")) {
+                    adherentObservableList.addAll(adherents);
+                } else {
+                    String clubId = selectedClub.split(" : ")[1];
+                    IdClubAdherent = clubId;
+                    for (Adherent adherent : adherents) {
+                        if (Objects.equals(adherent.getIdClub(), clubId)) {
+                            adherentObservableList.add(adherent);
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public void initialize() {
         String XMLPath_adherent = JSONReader.getJsonValue("adherent");
@@ -82,16 +112,17 @@ public class DefaultController {
         }
         finally {
             try {
-                List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
                 lstclubs.setOnAction(event -> {
+                    List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
                     adherentObservableList.clear();
-                    String selectedClub = lstclubs.getValue();
+                    selectedClub = lstclubs.getValue();
                     if (selectedClub != null) {
                         if (selectedClub.equals("Tous les clubs")) {
                             adherentObservableList.addAll(adherents);
                         }
                         else {
                             String clubId = selectedClub.split(" : ")[1];
+                            IdClubAdherent = clubId;
                             for (Adherent adherent : adherents) {
                                 if (Objects.equals(adherent.getIdClub(), clubId)) {
                                     adherentObservableList.add(adherent);
@@ -109,7 +140,6 @@ public class DefaultController {
         genreadherent.setCellValueFactory(new PropertyValueFactory<>("genre"));
         emailadherent.setCellValueFactory(new PropertyValueFactory<>("adresseEmail"));
         categadherent.setCellValueFactory(new PropertyValueFactory<>("categorie"));
-
         representantadherentnom.setCellValueFactory(cellData -> {
             Adherent adherent = cellData.getValue();
             String nomResponsable = "";
@@ -122,7 +152,6 @@ public class DefaultController {
             }
             return new ReadOnlyStringWrapper(nomResponsable);
         });
-
         representantadherentprenom.setCellValueFactory(cellData -> {
             Adherent adherent = cellData.getValue();
             String prenomResponsable = "";
@@ -135,7 +164,6 @@ public class DefaultController {
             }
             return new ReadOnlyStringWrapper(prenomResponsable);
         });
-
         adherenttable.setItems(adherentObservableList);
         FilteredList<Adherent> filteredData = new FilteredList<>(adherentObservableList, p -> true);
         keywordstextfield.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -159,27 +187,6 @@ public class DefaultController {
         adherenttable.setItems(sortedData);
     }
 
-    public void refreshAdherents() {
-        adherentObservableList.clear();
-        String XMLPath_adherent = JSONReader.getJsonValue("adherent");
-        try {
-            // Chargez les adhérents à partir de votre fichier XML
-            List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
-            adherentObservableList.addAll(adherents);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Mise à jour réussie");
-            alert.setHeaderText(null);
-            alert.setContentText("La liste des adhérents a été mise à jour avec succès !");
-            PauseTransition delai = new PauseTransition(javafx.util.Duration.seconds(2));
-            delai.setOnFinished(event -> alert.close());
-            alert.show();
-            delai.play();
-        }
-    }
-
     public void exporter() {
         if (!adherentObservableList.isEmpty()) {
             try {
@@ -196,13 +203,16 @@ public class DefaultController {
         }
     }
 
-    public void getAddView(MouseEvent mouseEvent) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/com/app/adherents/gestion_adherents/addAdherents.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
-        stage.show();
+    public void refreshAdherents() {
+        miseajour();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Mise à jour réussie");
+        alert.setHeaderText(null);
+        alert.setContentText("La liste des adhérents a été mise à jour avec succès !");
+        PauseTransition delai = new PauseTransition(javafx.util.Duration.seconds(2));
+        delai.setOnFinished(event -> alert.close());
+        alert.show();
+        delai.play();
     }
 
     public void supprimmerAdherent() {
@@ -243,6 +253,23 @@ public class DefaultController {
 
     public static String getIdAdherent() {
         return String.valueOf(id_adherent);
+    }
+
+    public void getAddView(MouseEvent mouseEvent) throws IOException {
+        if (selectedClub.equals("Tous les clubs")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Merci de selectionner un club !");
+            alert.showAndWait();
+        } else {
+            Parent parent = FXMLLoader.load(getClass().getResource("/com/app/adherents/gestion_adherents/addAdherents.fxml"));
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
+            stage.show();
+        }
     }
 
     public void editAdherent() {
