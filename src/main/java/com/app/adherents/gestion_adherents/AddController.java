@@ -82,15 +82,16 @@ public class AddController {
         }
     }
 
+
     @FXML
     private void save() {
-        if (nomTextField.getText().isEmpty() || prenomTextField.getText().isEmpty() || dateNaissancePicker.getValue() == null || genreComboBox.getValue() == null || nomNaissanceTextField.getText().isEmpty() || paysNaissanceTextField.getText().isEmpty() || villeNaissanceTextField.getText().isEmpty() || nationaliteTextField.getText().isEmpty() || adresseTextField.getText().isEmpty() || codePostalTextField.getText().isEmpty() || villeTextField.getText().isEmpty() || tel1TextField.getText().isEmpty() || emailTextField.getText().isEmpty() || pratiqueComboBox.getValue() == null || lateraliteComboBox.getValue() == null || categorieComboBox.getValue() == null || prenomResponsableTextField.getText().isEmpty() || nomResponsableTextField.getText().isEmpty() || (!armefleurer.isSelected() && !armeepee.isSelected() && !armesabre.isSelected())) {
+        if (checkempty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");
             alert.setHeaderText("Erreur de saisie");
             alert.setContentText("Veuillez remplir tous les champs");
             alert.showAndWait();
-        } else {
+        } else if (checkall()) {
             String XMLPath_adherent = JSONReader.getJsonValue("adherent");
             if (!XMLFileManipulation.comparerBalisesXML(XMLPath_adherent, "adherent", "Adresse_email", emailTextField.getText())) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -163,7 +164,6 @@ public class AddController {
                         stage.close();
                         DefaultController.miseajour();
                     }
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -196,6 +196,23 @@ public class AddController {
         armefleurer.setSelected(false);
         armeepee.setSelected(false);
         armesabre.setSelected(false);
+
+        nomTextField.setStyle("");
+        prenomTextField.setStyle("");
+        dateNaissancePicker.setStyle("");
+        nomNaissanceTextField.setStyle("");
+        paysNaissanceTextField.setStyle("");
+        villeNaissanceTextField.setStyle("");
+        nationaliteTextField.setStyle("");
+        adresseTextField.setStyle("");
+        codePostalTextField.setStyle("");
+        villeTextField.setStyle("");
+        tel1TextField.setStyle("");
+        tel2TextField.setStyle("");
+        emailTextField.setStyle("");
+        prenomResponsableTextField.setStyle("");
+        nomResponsableTextField.setStyle("");
+
     }
 
     @FXML
@@ -207,13 +224,13 @@ public class AddController {
 
     @FXML
     private void update() {
-        if (nomTextField.getText().isEmpty() || prenomTextField.getText().isEmpty() || dateNaissancePicker.getValue() == null || genreComboBox.getValue() == null || nomNaissanceTextField.getText().isEmpty() || paysNaissanceTextField.getText().isEmpty() || villeNaissanceTextField.getText().isEmpty() || nationaliteTextField.getText().isEmpty() || adresseTextField.getText().isEmpty() || codePostalTextField.getText().isEmpty() || villeTextField.getText().isEmpty() || tel1TextField.getText().isEmpty() || emailTextField.getText().isEmpty() || pratiqueComboBox.getValue() == null || lateraliteComboBox.getValue() == null || categorieComboBox.getValue() == null || prenomResponsableTextField.getText().isEmpty() || nomResponsableTextField.getText().isEmpty() || (!armefleurer.isSelected() && !armeepee.isSelected() && !armesabre.isSelected())) {
+        if (checkempty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");
             alert.setHeaderText("Erreur de saisie");
             alert.setContentText("Veuillez remplir tous les champs");
             alert.showAndWait();
-        } else {
+        } else if (checkall()) {
             try {
                 //recuperation des champs
                 String nom = nomTextField.getText();
@@ -294,6 +311,54 @@ public class AddController {
         }
     }
 
+
+    public boolean checkempty() {
+        return nomTextField.getText().isEmpty() || prenomTextField.getText().isEmpty() || dateNaissancePicker.getValue() == null || genreComboBox.getValue() == null || nomNaissanceTextField.getText().isEmpty() || paysNaissanceTextField.getText().isEmpty() || villeNaissanceTextField.getText().isEmpty() || nationaliteTextField.getText().isEmpty() || adresseTextField.getText().isEmpty() || codePostalTextField.getText().isEmpty() || villeTextField.getText().isEmpty() || tel1TextField.getText().isEmpty() || emailTextField.getText().isEmpty() || pratiqueComboBox.getValue() == null || lateraliteComboBox.getValue() == null || categorieComboBox.getValue() == null || prenomResponsableTextField.getText().isEmpty() || nomResponsableTextField.getText().isEmpty() || (!armefleurer.isSelected() && !armeepee.isSelected() && !armesabre.isSelected());
+    }
+
+    public boolean checkall() {
+        List<TextField> invalidFields = new ArrayList<>();
+
+        if (!verifierEmail()) invalidFields.add(emailTextField);
+        if (!verifnom()) invalidFields.add(nomTextField);
+        if (!verifprenom()) invalidFields.add(prenomTextField);
+        if (!verifnomnaissance()) invalidFields.add(nomNaissanceTextField);
+        if (!verifpaynaissance()) invalidFields.add(paysNaissanceTextField);
+        if (!verifvillenaissance()) invalidFields.add(villeNaissanceTextField);
+        if (!verifnationalite()) invalidFields.add(nationaliteTextField);
+        if (!verifadresse()) invalidFields.add(adresseTextField);
+        if (!verifcodepostal()) invalidFields.add(codePostalTextField);
+        if (!verifville()) invalidFields.add(villeTextField);
+        if (!veriftel1()) invalidFields.add(tel1TextField);
+        if (!veriftel2()) invalidFields.add(tel2TextField);
+        if (!verifnomresponsalbe()) invalidFields.add(nomResponsableTextField);
+        if (!verifprenomresponsable()) invalidFields.add(prenomResponsableTextField);
+
+        if (invalidFields.isEmpty()) {
+            return true;
+        } else {
+            for (TextField field : invalidFields) {
+                field.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+            }
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText("Erreur de saisie");
+            alert.setContentText("Les éléments en rouge ne sont pas conformes !");
+            alert.showAndWait();
+            return false;
+        }
+    }
+
+
+    private boolean verifChamp(String regex, TextField textField) {
+        boolean isMatch = textField.getText().matches(regex);
+        if (!isMatch) {
+            textField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+        }
+        textField.setStyle("");
+        return isMatch;
+    }
     public void initDataAdherent(Adherent adherent) {
         if (!Objects.equals(adherent.getNumeroTelephone2(), "null")) {
             tel2TextField.setText(adherent.getNumeroTelephone2());
@@ -329,6 +394,81 @@ public class AddController {
                 armesabre.setSelected(true);
             }
         }
+    }
+
+    private boolean verifierEmail() {
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        return verifChamp(regex, emailTextField);
+    }
+
+    private boolean verifnom() {
+        String regex = "^[a-zA-Z]+$";
+        return verifChamp(regex, nomTextField);
+    }
+
+    private boolean verifprenom() {
+        String regex = "^[a-zA-Z]+$";
+        return verifChamp(regex, prenomTextField);
+    }
+
+    private boolean verifnomnaissance() {
+        String regex = "^[a-zA-Z]+$";
+        return verifChamp(regex, nomNaissanceTextField);
+    }
+
+    private boolean verifpaynaissance() {
+        String regex = "^[a-zA-Z]+$";
+        return verifChamp(regex, paysNaissanceTextField);
+    }
+
+    private boolean verifvillenaissance() {
+        String regex = "^[a-zA-Z]+$";
+        return verifChamp(regex, villeNaissanceTextField);
+    }
+
+    private boolean verifnationalite() {
+        String regex = "^[a-zA-Z]+$";
+        return verifChamp(regex, nationaliteTextField);
+    }
+
+    private boolean verifadresse() {
+        String regex = "^[a-zA-Z0-9]+$";
+        return verifChamp(regex, adresseTextField);
+    }
+
+    private boolean verifcodepostal() {
+        String regex = "^[0-9]+$";
+        return verifChamp(regex, codePostalTextField);
+    }
+
+    private boolean verifville() {
+        String regex = "^[a-zA-Z]+$";
+        return verifChamp(regex, villeTextField);
+    }
+
+    private boolean veriftel1() {
+        String regex = "^[0-9]+$";
+        boolean tel1Valid = verifChamp(regex, tel1TextField);
+        return tel1Valid;
+    }
+
+    private boolean veriftel2() {
+        String regex = "^[0-9]+$";
+        if (tel2TextField.getText().isEmpty()) {
+            return true;
+        }
+        boolean tel2Valid = verifChamp(regex, tel2TextField);
+        return tel2Valid;
+    }
+
+    private boolean verifnomresponsalbe() {
+        String regex = "^[a-zA-Z]+$";
+        return verifChamp(regex, nomResponsableTextField);
+    }
+
+    private boolean verifprenomresponsable() {
+        String regex = "^[a-zA-Z]+$";
+        return verifChamp(regex, prenomResponsableTextField);
     }
 
 }
