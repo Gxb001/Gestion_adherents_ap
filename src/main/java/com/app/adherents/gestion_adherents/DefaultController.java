@@ -256,20 +256,29 @@ public class DefaultController {
     }
 
     public void getAddView(MouseEvent mouseEvent) throws IOException {
-        if (selectedClub.equals("Tous les clubs")) {
+        try {
+            if (selectedClub.equals("Tous les clubs")) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur");
+                alert.setHeaderText(null);
+                alert.setContentText("Merci de selectionner un club !");
+                alert.showAndWait();
+            } else {
+                Parent parent = FXMLLoader.load(getClass().getResource("/com/app/adherents/gestion_adherents/addAdherents.fxml"));
+                Scene scene = new Scene(parent);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
+                stage.show();
+            }
+        } catch (Exception RuntimeException) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");
             alert.setHeaderText(null);
             alert.setContentText("Merci de selectionner un club !");
             alert.showAndWait();
-        } else {
-            Parent parent = FXMLLoader.load(getClass().getResource("/com/app/adherents/gestion_adherents/addAdherents.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
-            stage.show();
         }
+
     }
 
     public void editAdherent() {

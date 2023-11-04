@@ -9,10 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Gestion des clubs OK, manque save &amp; update gestion de clubs">
+    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Project Done, need some optimisation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/CSVExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/CSVExporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DefaultController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" afterDir="false" />
     </list>
@@ -394,7 +393,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698870250390</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Project Done, need some optimisation">
+      <option name="closed" value="true" />
+      <created>1699026279840</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1699026279840</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,7 +466,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Trie des adhérents ok" />
     <MESSAGE value="Fichier note -&gt; Rappels" />
     <MESSAGE value="fichier json pour stocker les path xml" />
     <MESSAGE value="fixage erreurs list club &amp; id club" />
@@ -484,14 +490,15 @@
     <MESSAGE value="update OK" />
     <MESSAGE value="Optimize CSVExporter" />
     <MESSAGE value="Gestion des clubs OK, manque save &amp; update gestion de clubs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gestion des clubs OK, manque save &amp; update gestion de clubs" />
+    <MESSAGE value="Project Done, need some optimisation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project Done, need some optimisation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java</url>
-          <line>310</line>
+          <line>303</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

@@ -118,6 +118,7 @@ public class XMLFileManipulation {
             String valeurActuelle = afficherXML(xmlFilePath, balisePrincipale, id, baliseAModifier);
 
             if (valeurActuelle.equals("Le fichier XML n'existe pas.") || valeurActuelle.equals("Erreur lors de la lecture du fichier XML")) {
+                System.out.println("Erreur lors de la lecture du fichier XML.");
                 return false; // Échec de la lecture du fichier XML
             } else if (valeurActuelle.equals(nouvelleValeur)) {
                 System.out.println("La nouvelle valeur est identique à l'ancienne.");
@@ -269,14 +270,6 @@ public class XMLFileManipulation {
         }
     }
 
-
-    private static String getElementTextContent(Element element, String tagName) {
-        NodeList nodeList = element.getElementsByTagName(tagName);
-        if (nodeList.getLength() > 0) {
-            return nodeList.item(0).getTextContent();
-        }
-        return "";
-    }
 
     /*
     Recupere le nombre d'elements dans une fichier xml, par exemple si il y à 20 adherents cela renvoie 20.
