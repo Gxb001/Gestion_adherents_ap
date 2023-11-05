@@ -9,11 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Project Done">
+    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Project Done &amp; inputs checks OK">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/AddController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/XML/adherent.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/btn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/app/adherents/gestion_adherents/btn.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +54,13 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="workOffline" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
@@ -67,30 +71,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;V2.0&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Users/Gabriel/Desktop/javafx-sdk-21/bin/vcruntime140_1.dll&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "V2.0",
+    "jdk.selected.JAVA_MODULE": "temurin-20",
+    "last_opened_file_path": "D:/Users/Gabriel/Desktop/Gestion_adherents_ap/json-simple-1.1.1.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "onboarding.tips.debug.path": "D:/Users/Gabriel/Desktop/Gestion_adherents_ap/untitled/src/Main.java",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "build.tools",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\gabri\Desktop\GA-AP\Gestion_adherents_ap\src\main\java\com\app\adherents\gestion_adherents" />
@@ -106,22 +112,13 @@
     <option name="myCommands">
       <command value="mvn --version" />
       <command value="mvn compile" />
+      <command value="mvn clean" />
+      <command value="mvn clean javafx:jlink" />
+      <command value="mvn clean install" />
+      <command value="mvn package" />
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="AdherentXML" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.app.adherents.gestion_adherents.DataManip.AdherentXML" />
-      <module name="Gestion_adherents" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.app.adherents.gestion_adherents.DataManip.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BaseApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.app.adherents.gestion_adherents.BaseApp" />
       <module name="Gestion_adherents" />
@@ -161,6 +158,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Gestion_adherents.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Gestion_adherents_jar/Gestion_adherents.jar" />
+      <method v="2" />
+    </configuration>
     <configuration name="json-simple-1.1.1.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/json-simple-1.1.1.jar" />
       <method v="2" />
@@ -168,10 +169,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.BaseApp" />
+        <item itemvalue="JAR Application.Gestion_adherents.jar" />
         <item itemvalue="Application.XMLFileManipulation" />
         <item itemvalue="JAR Application.json-simple-1.1.1.jar" />
-        <item itemvalue="Application.BaseApp" />
-        <item itemvalue="Application.AdherentXML" />
       </list>
     </recent_temporary>
   </component>
@@ -409,7 +410,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699108299017</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Project Done &amp; inputs checks OK">
+      <option name="closed" value="true" />
+      <created>1699113032766</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1699113032766</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +483,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fichier json pour stocker les path xml" />
     <MESSAGE value="fixage erreurs list club &amp; id club" />
     <MESSAGE value="fonctions get armes, get infos respon legal OK" />
     <MESSAGE value="fonction de modification OK" />
@@ -499,7 +507,8 @@
     <MESSAGE value="Gestion des clubs OK, manque save &amp; update gestion de clubs" />
     <MESSAGE value="Project Done, need some optimisation" />
     <MESSAGE value="Project Done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project Done" />
+    <MESSAGE value="Project Done &amp; inputs checks OK" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project Done &amp; inputs checks OK" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -508,6 +517,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/XMLFileManipulation.java</url>
           <line>303</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/untitled/src/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
