@@ -305,8 +305,8 @@ public class AddController {
                     DefaultController defaultController = new DefaultController();
                     defaultController.refreshAdherents();
                 }
-                } catch (Exception e) {
-                    e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -359,11 +359,11 @@ public class AddController {
         textField.setStyle("");
         return isMatch;
     }
+
     public void initDataAdherent(Adherent adherent) {
         if (!Objects.equals(adherent.getNumeroTelephone2(), "null")) {
             tel2TextField.setText(adherent.getNumeroTelephone2());
-        }
-        else {
+        } else {
             tel2TextField.setText("");
         }
         nomTextField.setText(adherent.getNom());

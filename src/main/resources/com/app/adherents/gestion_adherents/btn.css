@@ -9,23 +9,29 @@
     -fx-text-fill: darkred;
     -fx-cursor: hand;
 }
+
 #ValidateButton:hover {
     -fx-text-fill: darkgreen;
     -fx-cursor: hand;
 }
+
 #CancelButton:hover {
     -fx-text-fill: darkred;
     -fx-cursor: hand;
 }
+
 #genreComboBox:hover {
     -fx-cursor: hand;
 }
+
 #pratiqueComboBox:hover {
     -fx-cursor: hand;
 }
+
 #categorieComboBox:hover {
     -fx-cursor: hand;
 }
+
 #lateraliteComboBox:hover {
     -fx-cursor: hand;
 }
@@ -47,7 +53,7 @@
     -fx-cursor: hand;
 }
 
-#adherenttable{
+#adherenttable {
     -fx-font-size: 14px;
     -fx-padding: 10px 20px;
     -fx-background-color: #7BD6E4;
@@ -85,13 +91,15 @@
     -fx-cursor: hand;
 }
 
-#armefleurer:hover{
+#armefleurer:hover {
     -fx-cursor: hand;
 }
-#armeepee:hover{
+
+#armeepee:hover {
     -fx-cursor: hand;
 }
-#armesabre:hover{
+
+#armesabre:hover {
     -fx-cursor: hand;
 }
 

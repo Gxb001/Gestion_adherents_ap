@@ -20,7 +20,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,6 +29,9 @@ import java.util.Optional;
 
 public class DefaultController {
     static ObservableList<Adherent> adherentObservableList = FXCollections.observableArrayList();
+    private static int id_adherent;
+    private static String IdClubAdherent;
+    private static String selectedClub;
     @FXML
     private TableView<Adherent> adherenttable;
     @FXML
@@ -50,9 +52,6 @@ public class DefaultController {
     private TextField keywordstextfield;
     @FXML
     private ComboBox<String> lstclubs;
-    private static int id_adherent;
-    private static String IdClubAdherent;
-    private static String selectedClub;
 
     public static int getIdClubAdherent() {
         return Integer.parseInt(IdClubAdherent);
@@ -82,6 +81,10 @@ public class DefaultController {
         }
     }
 
+    public static String getIdAdherent() {
+        return String.valueOf(id_adherent);
+    }
+
     public void initialize() {
         String XMLPath_adherent = JSONReader.getJsonValue("adherent");
         String XMLPath_club = JSONReader.getJsonValue("club");
@@ -109,8 +112,7 @@ public class DefaultController {
             lstclubs.getItems().add("Tous les clubs");
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
                 lstclubs.setOnAction(event -> {
                     List<Adherent> adherents = XMLListing.listerAdherents(XMLPath_adherent);
@@ -119,8 +121,7 @@ public class DefaultController {
                     if (selectedClub != null) {
                         if (selectedClub.equals("Tous les clubs")) {
                             adherentObservableList.addAll(adherents);
-                        }
-                        else {
+                        } else {
                             String clubId = selectedClub.split(" : ")[1];
                             IdClubAdherent = clubId;
                             for (Adherent adherent : adherents) {
@@ -251,10 +252,6 @@ public class DefaultController {
         }
     }
 
-    public static String getIdAdherent() {
-        return String.valueOf(id_adherent);
-    }
-
     public void getAddView(MouseEvent mouseEvent) throws IOException {
         try {
             if (selectedClub.equals("Tous les clubs")) {
@@ -265,11 +262,18 @@ public class DefaultController {
                 alert.showAndWait();
             } else {
                 Parent parent = FXMLLoader.load(getClass().getResource("/com/app/adherents/gestion_adherents/addAdherents.fxml"));
-                Scene scene = new Scene(parent);
+                ScrollPane scrollPane = new ScrollPane();
+                scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+                scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+
+                scrollPane.setContent(parent);
+
+                Scene scene = new Scene(scrollPane, 610, 400);
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
                 stage.show();
+
             }
         } catch (Exception RuntimeException) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -291,10 +295,16 @@ public class DefaultController {
                 AddController addController = loader.getController();
                 addController.initDataAdherent(adherent);
 
-                Scene scene = new Scene(parent);
+                ScrollPane scrollPane = new ScrollPane();
+                scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+                scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+
+                scrollPane.setContent(parent);
+
+                Scene scene = new Scene(scrollPane, 610, 400);
                 Stage stage = new Stage();
                 stage.setScene(scene);
-                stage.initStyle(StageStyle.UNDECORATED);
+                stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
                 stage.show();
             } catch (IOException e) {
                 throw new RuntimeException(e);
