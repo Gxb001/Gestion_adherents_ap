@@ -9,8 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Project Done &amp; inputs checks OK">
+    <list default="true" id="731664d2-46ee-4e3c-b2fc-a77f8ec6534a" name="Changes" comment="Project Done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/json-simple-1.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/CSVExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/DataManip/CSVExporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/adherents/gestion_adherents/recup_id_club" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,17 +87,17 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "V2.0",
     "jdk.selected.JAVA_MODULE": "temurin-20",
-    "last_opened_file_path": "D:/Users/Gabriel/Desktop/Gestion_adherents_ap/json-simple-1.1.1.jar",
+    "last_opened_file_path": "D:/Users/Gabriel/Desktop/Gestion_adherents_ap/src/main/java/com/app/adherents/gestion_adherents/XML/club.xml",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "onboarding.tips.debug.path": "D:/Users/Gabriel/Desktop/Gestion_adherents_ap/untitled/src/Main.java",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "build.tools",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -169,8 +173,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.BaseApp" />
         <item itemvalue="JAR Application.Gestion_adherents.jar" />
+        <item itemvalue="Application.BaseApp" />
         <item itemvalue="Application.XMLFileManipulation" />
         <item itemvalue="JAR Application.json-simple-1.1.1.jar" />
       </list>
@@ -418,7 +422,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699113032766</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Project Done">
+      <option name="closed" value="true" />
+      <created>1699195045873</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1699195045873</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,9 +518,9 @@
     <MESSAGE value="Optimize CSVExporter" />
     <MESSAGE value="Gestion des clubs OK, manque save &amp; update gestion de clubs" />
     <MESSAGE value="Project Done, need some optimisation" />
-    <MESSAGE value="Project Done" />
     <MESSAGE value="Project Done &amp; inputs checks OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project Done &amp; inputs checks OK" />
+    <MESSAGE value="Project Done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project Done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -9,13 +9,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 
-/*TODO probleme d'encodage*/
-/*TODO gestion taille des entrées text*/
-/*TODO verif type entrée ex email tel etc...*/
-/*TODO verif age & catégorie*/
-/*TODO modif maj min nom prenom etc...*/
-/*TODO RELIRE CONSIGNES*/
-
 public class CSVExporter {
     public static void exporterAdherentsCSV() throws IOException {
         File selectedFile = choisirEmplacementFichierCSV();
