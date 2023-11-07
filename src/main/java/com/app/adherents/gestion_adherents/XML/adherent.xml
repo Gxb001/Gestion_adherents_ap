@@ -1,1 +1,61 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><adhérents>    <adhérent id="3">        <Nom>Doumbia</Nom>        <Prenom>Bomody</Prenom>        <DateNaissance>2023-11-21</DateNaissance>        <Genre>Homme</Genre>        <Nom_de_naissance>Bamody</Nom_de_naissance>        <Pays_naissance>Senegal</Pays_naissance>        <Ville_naissance>Dakar</Ville_naissance>        <Nationalite>Malien</Nationalite>        <Code_postal>31000</Code_postal>        <Adresse>toulouse</Adresse>        <Ville>toulouse</Ville>        <Numéro_de_telephone1>468468</Numéro_de_telephone1>        <Numéro_de_telephone2>null</Numéro_de_telephone2>        <Adresse_email>bamody@gmail.com</Adresse_email>        <Pratique>Loisir</Pratique>        <Latéralité>Droite</Latéralité>        <id_du_club>1</id_du_club>        <Catégorie>Juniors (2003 - 2005)</Catégorie>        <Pratique_Escrime>            <Arme>Fleuret</Arme>            <Arme>Epée</Arme>        </Pratique_Escrime>        <Responsable_Légal>            <Nom_responsable>Ferrer</Nom_responsable>            <Prenom_responsable>Gabriel</Prenom_responsable>        </Responsable_Légal>    </adhérent>    <adhérent id="4">        <Nom>tetete</Nom>        <Prenom>tett</Prenom>        <DateNaissance>2023-11-07</DateNaissance>        <Genre>Femme</Genre>        <Nom_de_naissance>etet</Nom_de_naissance>        <Pays_naissance>ettetet</Pays_naissance>        <Ville_naissance>teete</Ville_naissance>        <Nationalite>tetet</Nationalite>        <Code_postal>tetee</Code_postal>        <Adresse>ete</Adresse>        <Ville>tet</Ville>        <Numéro_de_telephone1>tetet</Numéro_de_telephone1>        <Numéro_de_telephone2>azeazeaze</Numéro_de_telephone2>        <Adresse_email>tetete</Adresse_email>        <Pratique>Compétition</Pratique>        <Latéralité>Gauche</Latéralité>        <id_du_club>4</id_du_club>        <Catégorie>Poussins (2014 - 2015)</Catégorie>        <Pratique_Escrime>            <Arme>Fleuret</Arme>            <Arme>Epée</Arme>        </Pratique_Escrime>        <Responsable_Légal>            <Nom_responsable>azeaze</Nom_responsable>            <Prenom_responsable>azeaze</Prenom_responsable>        </Responsable_Légal>    </adhérent>    <adhérent id="5">        <Nom>eazeaze</Nom>        <Prenom>aze</Prenom>        <DateNaissance>2023-10-30</DateNaissance>        <Genre>Femme</Genre>        <Nom_de_naissance>azeaz</Nom_de_naissance>        <Pays_naissance>eazeaeaze</Pays_naissance>        <Ville_naissance>aze</Ville_naissance>        <Nationalite>azeazea</Nationalite>        <Code_postal>31</Code_postal>        <Adresse>zeaze</Adresse>        <Ville>azeaz</Ville>        <Numéro_de_telephone1>564856</Numéro_de_telephone1>        <Numéro_de_telephone2>null</Numéro_de_telephone2>        <Adresse_email>eazeaz@gmail.com</Adresse_email>        <Pratique>Compétition</Pratique>        <Latéralité>Gauche</Latéralité>        <id_du_club>1</id_du_club>        <Catégorie>Atomes (2016 - 2017)</Catégorie>        <Pratique_Escrime>            <Arme>Fleuret</Arme>            <Arme>Epée</Arme>        </Pratique_Escrime>        <Responsable_Légal>            <Nom_responsable>aezaze</Nom_responsable>            <Prenom_responsable>azeaze</Prenom_responsable>        </Responsable_Légal>    </adhérent></adhérents>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<adhérents>
+    <adhérent id="3">
+        <Nom>Doumbia</Nom>
+        <Prenom>Bomody</Prenom>
+        <DateNaissance>2023-11-21</DateNaissance>
+        <Genre>Homme</Genre>
+        <Nom_de_naissance>Bamody</Nom_de_naissance>
+        <Pays_naissance>Senegal</Pays_naissance>
+        <Ville_naissance>Dakar</Ville_naissance>
+        <Nationalite>Malien</Nationalite>
+        <Code_postal>31000</Code_postal>
+        <Adresse>toulouse</Adresse>
+        <Ville>toulouse</Ville>
+        <Numéro_de_telephone1>468468</Numéro_de_telephone1>
+        <Numéro_de_telephone2>null</Numéro_de_telephone2>
+        <Adresse_email>bamody@gmail.com</Adresse_email>
+        <Pratique>Loisir</Pratique>
+        <Latéralité>Droite</Latéralité>
+        <id_du_club>1</id_du_club>
+        <Catégorie>Juniors (2003 - 2005)</Catégorie>
+        <Pratique_Escrime>
+            <Arme>Fleuret</Arme>
+            <Arme>Epée</Arme>
+        </Pratique_Escrime>
+        <Responsable_Légal>
+            <Nom_responsable>Ferrer</Nom_responsable>
+            <Prenom_responsable>Gabriel</Prenom_responsable>
+        </Responsable_Légal>
+    </adhérent>
+    <adhérent id="4">
+        <Nom>tetete</Nom>
+        <Prenom>tett</Prenom>
+        <DateNaissance>2023-11-07</DateNaissance>
+        <Genre>Femme</Genre>
+        <Nom_de_naissance>etet</Nom_de_naissance>
+        <Pays_naissance>ettetet</Pays_naissance>
+        <Ville_naissance>teete</Ville_naissance>
+        <Nationalite>tetet</Nationalite>
+        <Code_postal>31000</Code_postal>
+        <Adresse>ete</Adresse>
+        <Ville>tet</Ville>
+        <Numéro_de_telephone1>060606060</Numéro_de_telephone1>
+        <Numéro_de_telephone2>5156</Numéro_de_telephone2>
+        <Adresse_email>tetete@gmail.com</Adresse_email>
+        <Pratique>Compétition</Pratique>
+        <Latéralité>Gauche</Latéralité>
+        <id_du_club>4</id_du_club>
+        <Catégorie>Poussins (2014 - 2015)</Catégorie>
+        <Pratique_Escrime>
+
+
+            <Arme>Fleuret</Arme>
+            <Arme>Epée</Arme>
+        </Pratique_Escrime>
+        <Responsable_Légal>
+            <Nom_responsable>azeaze</Nom_responsable>
+            <Prenom_responsable>azeaze</Prenom_responsable>
+        </Responsable_Légal>
+    </adhérent>
+</adhérents>

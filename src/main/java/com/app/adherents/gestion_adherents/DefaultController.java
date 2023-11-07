@@ -6,6 +6,14 @@ import com.app.adherents.gestion_adherents.DataManip.CSVExporter;
 import com.app.adherents.gestion_adherents.DataManip.JSONReader;
 import com.app.adherents.gestion_adherents.DataManip.XMLFileManipulation;
 import com.app.adherents.gestion_adherents.DataManip.XMLListing;
+import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.properties.HorizontalAlignment;
+import com.itextpdf.layout.properties.TextAlignment;
 import javafx.animation.PauseTransition;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
@@ -19,9 +27,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -283,6 +296,71 @@ public class DefaultController {
             alert.showAndWait();
         }
 
+    }
+
+    public void pdfexport() throws FileNotFoundException {
+        Adherent adherent = adherenttable.getSelectionModel().getSelectedItem();
+        if (adherent != null) {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers PDF", "*.pdf"));
+            File selectedFile = fileChooser.showSaveDialog(null);
+            if (selectedFile != null) {
+                try {
+                    PdfDocument pdfDoc = new PdfDocument(new PdfWriter(selectedFile));
+                    Document document = new Document(pdfDoc);
+                    document.setMargins(36, 36, 36, 36);
+                    Image logo = new Image(ImageDataFactory.create("src/main/java/com/app/adherents/gestion_adherents/medias/ligue.jpg"));
+                    logo.setHorizontalAlignment(HorizontalAlignment.CENTER);
+                    document.add(logo);
+
+                    document.add(new Paragraph("Nom : " + adherent.getNom()));
+                    document.add(new Paragraph("Prénom : " + adherent.getPrenom()));
+                    document.add(new Paragraph("Inscrit le " + LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
+
+                    document.add(new Paragraph("Récapitulatif de la fiche adhérent").setFontSize(16).setBold().setTextAlignment(TextAlignment.CENTER).setMarginTop(20));
+                    document.add(new Paragraph("Genre : " + adherent.getGenre())
+                            .setFontSize(12));
+                    document.add(new Paragraph("Date de naissance : " + adherent.getDateNaissance())
+                            .setFontSize(12));
+                    document.add(new Paragraph("Adresse Email : " + adherent.getAdresseEmail())
+                            .setFontSize(12));
+                    document.add(new Paragraph("Catégorie : " + adherent.getCategorie())
+                            .setFontSize(12));
+                    document.add(new Paragraph("Informations du responsable légal")
+                            .setFontSize(14)
+                            .setBold()
+                            .setMarginTop(20));
+                    document.add(new Paragraph("Nom du responsable : " + adherent.getResponsableLegal().getNomResponsable())
+                            .setFontSize(12));
+                    document.add(new Paragraph("Prénom du responsable : " + adherent.getResponsableLegal().getPrenomResponsable())
+                            .setFontSize(12));
+                    document.add(new Paragraph("Contacts")
+                            .setFontSize(14)
+                            .setBold()
+                            .setMarginTop(20));
+                    document.add(new Paragraph("Téléphone 1 : " + adherent.getNumeroTelephone1()))
+                            .setFontSize(12);
+                    String numero2 = adherent.getNumeroTelephone2();
+                    if (numero2 == null) {
+                        document.add(new Paragraph("Téléphone 2 : " + numero2).setFontSize(12));
+                    } else {
+                        document.add(new Paragraph("Téléphone 2 : Numéro non renseigné").setFontSize(12));
+                    }
+                    document.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            Alert errselect = new Alert(Alert.AlertType.ERROR);
+            errselect.setTitle("Adhérent non selectionné");
+            errselect.setHeaderText(null);
+            errselect.setContentText("Merci de selectionner un adhérent à exporter !");
+            PauseTransition delai = new PauseTransition(javafx.util.Duration.seconds(2));
+            delai.setOnFinished(event -> errselect.close());
+            errselect.show();
+            delai.play();
+        }
     }
 
     public void editAdherent() {

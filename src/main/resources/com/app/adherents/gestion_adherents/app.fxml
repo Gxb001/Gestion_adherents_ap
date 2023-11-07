@@ -3,8 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.*?>
-<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-      minWidth="-Infinity"
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1"
       fx:controller="com.app.adherents.gestion_adherents.DefaultController">
     <children>
@@ -35,8 +34,8 @@
                 <Font name="Yu Gothic Light" size="12.0"/>
             </font>
         </Button>
-        <Button fx:id="btnexp" layoutX="521.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#refreshAdherents"
-                prefHeight="40.0" prefWidth="107.0" stylesheets="@btn.css" text="Actualiser">
+        <Button fx:id="btnexp" layoutX="521.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#pdfexport"
+                prefHeight="40.0" prefWidth="107.0" stylesheets="@btn.css" text="PDF">
             <font>
                 <Font name="Yu Gothic Light" size="12.0"/>
             </font>
