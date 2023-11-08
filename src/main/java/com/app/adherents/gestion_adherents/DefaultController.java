@@ -346,6 +346,38 @@ public class DefaultController {
                     } else {
                         document.add(new Paragraph("Téléphone 2 : Numéro non renseigné").setFontSize(12));
                     }
+                    String catadherent = adherent.getCategorie();
+                    String[] cat = catadherent.split(" ");
+                    String categorie = cat[0];
+                    int prix = 0;
+                    if (categorie == "Eveil" || categorie == "Atomes" || categorie == "Poussins" || categorie == "Pupilles") {
+                        prix += 190;
+                        if (categorie == "Eveil" || categorie == "Atomes") {
+                            prix += 28;
+                        } else if (categorie == "Poussins") {
+                            prix += 45;
+                        } else {
+                            prix += 55;
+                        }
+                    } else if (categorie == "Juniors" || categorie == "Binjamins") {
+                        prix += 220;
+                        prix += 55;
+
+                    } else {
+                        prix += 255;
+                        prix += 55;
+                    }
+                    document.add(new Paragraph("Paiements et cotisations")
+                            .setFontSize(14)
+                            .setBold()
+                            .setMarginTop(20));
+                    document.add(new Paragraph("Prix de la cotisation : " + prix + "€")
+                            .setFontSize(12));
+                    document.add(new Paragraph("Pour toute demande de reduction famille merci de nous contacter !")
+                            .setFontSize(12)
+                            .setTextAlignment(TextAlignment.CENTER)
+                            .setItalic());
+
                     document.close();
                 } catch (Exception e) {
                     e.printStackTrace();
