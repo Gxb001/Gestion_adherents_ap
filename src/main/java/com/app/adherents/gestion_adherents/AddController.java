@@ -432,7 +432,7 @@ public class AddController {
     }
 
     private boolean verifadresse() {
-        String regex = "^[a-zA-Z0-9]+$";
+        String regex = "^[a-zA-Z0-9 ]+$";
         return verifChamp(regex, adresseTextField);
     }
 
